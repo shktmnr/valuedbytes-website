@@ -108,8 +108,8 @@ function renderOrbit(){
   const buttons=badgeRoot.querySelectorAll('button');
   buttons.forEach((button,i)=>{
     const angle=Math.PI/2+(i-orbitPhase)*orbitStep;
-    const x=50+46*Math.cos(angle);
-    const y=50+43*Math.sin(angle);
+    const x=50+44*Math.cos(angle);
+    const y=50+44*Math.sin(angle);
     button.style.left=x+'%';
     button.style.top=y+'%';
     button.style.zIndex=String(Math.round(10+10*Math.sin(angle)));

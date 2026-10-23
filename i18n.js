@@ -5,7 +5,7 @@ const urdu={
   "Let's Talk":'بات کیجیے','TECHNOLOGY THAT WORKS FOR YOUR WORLD':'آپ کی دنیا کے لیے مفید ٹیکنالوجی',
   // In Urdu, the industry name comes first and "کے لیے" comes after it.
   // The English "For " is therefore hidden in Urdu mode.
-  'For':'','Easier everyday work':'روزمرہ کام میں آسانی','More accuracy':'زیادہ درستگی','Better control':'بہتر کنٹرول',
+  'For':'', 'And much more…':'اور بھی بہت کچھ','Easier everyday work':'روزمرہ کام میں آسانی','More accuracy':'زیادہ درستگی','Better control':'بہتر کنٹرول',
   'Explore Our Services':'ہماری خدمات دیکھیے',"Let's Build Yours":'اپنا سافٹ ویئر بنوائیے',
   'Custom digital solutions for organizations of every size.':'ہر طرح کے ادارے کے لیے اس کی ضرورت کے مطابق ڈیجیٹل حل۔',
   'VBT / YOUR WORKSPACE':'وی بی ٹی / آپ کا ورک اسپیس','● LIVE PREVIEW':'● لائیو',

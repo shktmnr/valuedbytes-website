@@ -260,3 +260,22 @@
 
 /* Preserve the display-style Nastaleeq for Urdu titles only. */
 .urdu-mode h1,.urdu-mode h2,.urdu-mode h3,.urdu-mode h4{font-family:'Jameel Noori Nastaleeq Kasheeda','Jameel Noori Nastaleeq','Noto Nastaliq Urdu',serif}
+
+/* Refined concentric hero orbit: labels travel through the lane between both rings. */
+.industry-stage{isolation:isolate}
+.industry-ring,.industry-badge-cloud{width:min(100%,550px);height:auto;aspect-ratio:1;position:absolute;top:50%;left:50%;right:auto;bottom:auto;transform:translate(-50%,-50%)}
+.industry-ring.ring-outer{width:min(100%,550px);border:1.5px dashed #81b8df86;animation:none;box-shadow:0 0 0 14px #d6edff26}
+.industry-ring.ring-inner{width:min(72%,396px);box-shadow:0 0 0 14px #eff9ff94;border:1.5px solid #acd7ecaf}
+.industry-badge-cloud{inset:auto;z-index:4;overflow:visible}
+.industry-badge{box-shadow:0 8px 19px #176fa622,0 1px 2px #0e5c8810;font-size:10px;padding:8px 11px;max-width:140px}
+.industry-badge.active{background:linear-gradient(125deg,#066be3,#10a7d9);border-color:#139bdb;box-shadow:0 13px 24px #075bc14b;scale:1.1}
+.industry-floating-label{z-index:7;background:linear-gradient(130deg,#0565d4,#129fe3);color:#fff;border:1px solid #54b9f1;box-shadow:0 12px 26px #0868bb46;font-size:11px;letter-spacing:.1px;animation:industryToastDrift 5s ease-in-out infinite}
+.industry-floating-label.label-a{top:18px;left:-1%;bottom:auto}
+.industry-floating-label.label-b{top:30px;right:-1%;bottom:auto;animation-delay:-2.5s}
+@keyframes industryToastDrift{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-10px) rotate(2deg)}}
+.industry-more{position:absolute;bottom:12px;right:1%;left:auto;z-index:6;font:800 14px 'Plus Jakarta Sans',sans-serif;letter-spacing:.1px;color:#1176c7;background:#eef9ffeb;border:1px solid #b8e0f3;border-radius:100px;padding:9px 16px;box-shadow:0 5px 18px #1a8dbe13;white-space:nowrap}
+.urdu-mode .industry-more{right:auto;left:1%;font-family:'Jameel Noori Nastaleeq Kasheeda','Jameel Noori Nastaleeq',serif;font-size:20px;line-height:1.4;letter-spacing:0;padding:6px 18px}
+@media(max-width:1100px){.industry-ring.ring-outer,.industry-badge-cloud{width:min(100%,500px)}.industry-ring.ring-inner{width:min(72%,360px)}.industry-floating-label.label-a{left:1%}.industry-floating-label.label-b{right:1%}}
+@media(max-width:820px){.industry-ring.ring-outer,.industry-badge-cloud{width:min(100%,510px)}.industry-ring.ring-inner{width:min(72%,367px)}}
+@media(max-width:550px){.industry-ring.ring-outer{width:95%}.industry-ring.ring-inner{width:70%}.industry-badge-cloud{display:none}.industry-floating-label{font-size:9px;padding:8px 10px}.industry-floating-label.label-a{top:10px;left:2%}.industry-floating-label.label-b{top:13px;right:2%}.industry-more{bottom:6px;right:2%;font-size:11px;padding:7px 12px}.urdu-mode .industry-more{bottom:4px;left:2%;font-size:16px}}
+@media(prefers-reduced-motion:reduce){.industry-floating-label{animation:none}}
