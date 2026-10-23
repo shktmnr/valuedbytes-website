@@ -48,7 +48,6 @@ const industryShapes={
   salon:'<rect x="82" y="39" width="156" height="139" rx="16"/><rect x="105" y="58" width="110" height="74" rx="12"/><path d="M135 175v-26h50v26M112 177h96M121 90c15-32 63-32 78 0M130 109c21 18 39 18 60 0"/><circle cx="160" cy="91" r="17"/>'
 };
 const badgeRoot=document.getElementById('industryBadges');
-const mobileBadgeRoot=document.getElementById('industryMobileBadges');
 const headline=document.getElementById('industryHeadline');
 const audience=document.getElementById('industryAudience');
 const description=document.getElementById('industryDescription');
@@ -89,9 +88,7 @@ function selectIndustry(index,force=false){
   document.getElementById('industryIcon').textContent=item.icon;
   document.getElementById('industryArtTitle').textContent=translate(item.title);
   document.getElementById('industryArtSubtitle').textContent=translate(item.tags);
-  document.getElementById('industryCounter').textContent=String(currentIndustry+1).padStart(2,'0')+' / '+String(industryOptions.length).padStart(2,'0');
   badgeRoot.querySelectorAll('button').forEach((button,i)=>{button.textContent=translate(industryOptions[i].name);button.classList.toggle('active',i===currentIndustry);button.setAttribute('aria-pressed',String(i===currentIndustry))});
-  mobileBadgeRoot.querySelectorAll('button').forEach((button,i)=>{button.textContent=translate(industryOptions[i].name);button.classList.toggle('active',i===currentIndustry);button.setAttribute('aria-pressed',String(i===currentIndustry))});
   requestAnimationFrame(()=>requestAnimationFrame(()=>artPanel.classList.remove('switching')));
 }
 function angleDifference(from,to){
@@ -140,10 +137,6 @@ industryOptions.forEach((industry,i)=>{
   badge.type='button';badge.className='industry-badge';badge.textContent=industry.name;
   badge.addEventListener('click',()=>navigateToIndustry(i));
   badgeRoot.appendChild(badge);
-  const mobileBadge=document.createElement('button');
-  mobileBadge.type='button';mobileBadge.textContent=industry.name;
-  mobileBadge.addEventListener('click',()=>navigateToIndustry(i));
-  mobileBadgeRoot.appendChild(mobileBadge);
 });
 document.getElementById('industryPrevious').addEventListener('click',()=>navigateToIndustry(currentIndustry-1));
 document.getElementById('industryNext').addEventListener('click',()=>navigateToIndustry(currentIndustry+1));
