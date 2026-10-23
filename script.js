@@ -33,7 +33,6 @@ const industryShapes={
   factory:'<path d="M59 174V96l64 32V96l64 32V77h75v97H59zM202 77V42h40v35M74 174h178"/><rect x="89" y="144" width="24" height="19" rx="3"/><rect x="148" y="144" width="24" height="19" rx="3"/><rect x="209" y="144" width="24" height="19" rx="3"/>',
   salon:'<rect x="82" y="39" width="156" height="139" rx="16"/><rect x="105" y="58" width="110" height="74" rx="12"/><path d="M135 175v-26h50v26M112 177h96M121 90c15-32 63-32 78 0M130 109c21 18 39 18 60 0"/><circle cx="160" cy="91" r="17"/>'
 };
-const badgePositions=[[13,15],[75,6],[94,24],[7,55],[94,69],[25,85],[72,91],[49,1],[2,33],[98,47],[50,99],[45,11]];
 const badgeRoot=document.getElementById('industryBadges');
 const mobileBadgeRoot=document.getElementById('industryMobileBadges');
 const headline=document.getElementById('industryHeadline');
@@ -43,14 +42,23 @@ const artPanel=document.getElementById('industryArtPanel');
 const artRoot=document.getElementById('industryArt');
 const prefersLessMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 let currentIndustry=0;
-let rotationTimer=null;
 let isPaused=prefersLessMotion;
+const orbitStep=2*Math.PI/industryOptions.length;
+const orbitSpeed=1/4.8; // One new industry reaches the bottom roughly every 4.8 seconds.
+let orbitPhase=0;
+let orbitTarget=null;
+let orbitLastFrame=0;
+let pointerOverStage=false;
+let stageHasFocus=false;
+let recentlySelectedUntil=0;
 function drawIndustryArt(kind){
   const shape=industryShapes[kind]||industryShapes.business;
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 215" role="img" aria-label="Line illustration"><circle cx="160" cy="105" r="95" fill="#d9f1fc" opacity=".72"/><circle cx="160" cy="105" r="70" fill="#effbff"/><g stroke="#207eb0" stroke-width="6" fill="#fff" stroke-linejoin="round" stroke-linecap="round">${shape}</g><g fill="#18b7bb" opacity=".7" class="art-detail"><circle cx="54" cy="52" r="7"/><circle cx="265" cy="44" r="5"/><path d="M252 148l8-13 8 13z"/></g><g fill="none" stroke="#7bc8e9" stroke-width="2" opacity=".9"><path d="M36 157h24M260 71h22M253 188h22"/></g></svg>`;
 }
 function selectIndustry(index){
-  currentIndustry=(index+industryOptions.length)%industryOptions.length;
+  const normalized=(index+industryOptions.length)%industryOptions.length;
+  if(normalized===currentIndustry&&artRoot.firstChild)return;
+  currentIndustry=normalized;
   const item=industryOptions[currentIndustry];
   audience.textContent=item.audience;
   headline.replaceChildren(document.createTextNode(item.lead),document.createElement('br'),Object.assign(document.createElement('span'),{textContent:item.highlight}));
@@ -65,37 +73,69 @@ function selectIndustry(index){
   mobileBadgeRoot.querySelectorAll('button').forEach((button,i)=>{button.classList.toggle('active',i===currentIndustry);button.setAttribute('aria-pressed',String(i===currentIndustry))});
   requestAnimationFrame(()=>requestAnimationFrame(()=>artPanel.classList.remove('switching')));
 }
-function restartRotation(){
-  clearInterval(rotationTimer);
-  if(!isPaused) rotationTimer=setInterval(()=>selectIndustry(currentIndustry+1),5500);
+function angleDifference(from,to){
+  const count=industryOptions.length;
+  return ((to-from+count/2)%count+count)%count-count/2;
+}
+function navigateToIndustry(index){
+  const normalized=(index+industryOptions.length)%industryOptions.length;
+  orbitTarget=orbitPhase+angleDifference(orbitPhase,normalized);
+  recentlySelectedUntil=performance.now()+1300;
+  selectIndustry(normalized);
+}
+function renderOrbit(){
+  const buttons=badgeRoot.querySelectorAll('button');
+  buttons.forEach((button,i)=>{
+    const angle=Math.PI/2+(i-orbitPhase)*orbitStep;
+    const x=50+46*Math.cos(angle);
+    const y=50+43*Math.sin(angle);
+    button.style.left=x+'%';
+    button.style.top=y+'%';
+    button.style.zIndex=String(Math.round(10+10*Math.sin(angle)));
+    button.style.opacity=String(.68+.32*(Math.sin(angle)+1)/2);
+  });
+}
+function orbitFrame(timestamp){
+  const delta=orbitLastFrame?Math.min((timestamp-orbitLastFrame)/1000,.06):0;
+  orbitLastFrame=timestamp;
+  if(orbitTarget!==null){
+    const remaining=orbitTarget-orbitPhase;
+    const step=Math.sign(remaining)*Math.min(Math.abs(remaining),delta*3.2);
+    orbitPhase+=step;
+    if(Math.abs(orbitTarget-orbitPhase)<.002){orbitPhase=orbitTarget;orbitTarget=null}
+  }else if(!isPaused&&!document.hidden&&!pointerOverStage&&!stageHasFocus&&timestamp>recentlySelectedUntil){
+    orbitPhase+=delta*orbitSpeed;
+  }
+  // The badge closest to the six-o'clock position is always the active one.
+  if(orbitTarget===null&&timestamp>recentlySelectedUntil){
+    const nearest=((Math.round(orbitPhase)%industryOptions.length)+industryOptions.length)%industryOptions.length;
+    selectIndustry(nearest);
+  }
+  renderOrbit();
+  requestAnimationFrame(orbitFrame);
 }
 industryOptions.forEach((industry,i)=>{
   const badge=document.createElement('button');
   badge.type='button';badge.className='industry-badge';badge.textContent=industry.name;
-  badge.style.setProperty('--x',badgePositions[i][0]+'%');
-  badge.style.setProperty('--y',badgePositions[i][1]+'%');
-  badge.style.setProperty('--duration',(5+(i%4))+'s');
-  badge.style.setProperty('--delay',(-i*.62)+'s');
-  badge.addEventListener('click',()=>{selectIndustry(i);restartRotation()});
+  badge.addEventListener('click',()=>navigateToIndustry(i));
   badgeRoot.appendChild(badge);
   const mobileBadge=document.createElement('button');
   mobileBadge.type='button';mobileBadge.textContent=industry.name;
-  mobileBadge.addEventListener('click',()=>{selectIndustry(i);restartRotation()});
+  mobileBadge.addEventListener('click',()=>navigateToIndustry(i));
   mobileBadgeRoot.appendChild(mobileBadge);
 });
-document.getElementById('industryPrevious').addEventListener('click',()=>{selectIndustry(currentIndustry-1);restartRotation()});
-document.getElementById('industryNext').addEventListener('click',()=>{selectIndustry(currentIndustry+1);restartRotation()});
+document.getElementById('industryPrevious').addEventListener('click',()=>navigateToIndustry(currentIndustry-1));
+document.getElementById('industryNext').addEventListener('click',()=>navigateToIndustry(currentIndustry+1));
 const pauseButton=document.getElementById('industryPause');
 function updatePauseButton(){
   pauseButton.textContent=isPaused?'▶':'Ⅱ';
   pauseButton.setAttribute('aria-pressed',String(isPaused));
   pauseButton.setAttribute('aria-label',isPaused?'Play automatic industry showcase':'Pause automatic industry showcase');
 }
-pauseButton.addEventListener('click',()=>{isPaused=!isPaused;updatePauseButton();restartRotation()});
+pauseButton.addEventListener('click',()=>{isPaused=!isPaused;updatePauseButton()});
 const stage=document.getElementById('industryStage');
-stage.addEventListener('mouseenter',()=>clearInterval(rotationTimer));
-stage.addEventListener('mouseleave',restartRotation);
-stage.addEventListener('focusin',()=>clearInterval(rotationTimer));
-stage.addEventListener('focusout',event=>{if(!stage.contains(event.relatedTarget))restartRotation()});
-document.addEventListener('visibilitychange',()=>{if(document.hidden)clearInterval(rotationTimer);else restartRotation()});
-selectIndustry(0);updatePauseButton();restartRotation();
+stage.addEventListener('mouseenter',()=>{pointerOverStage=true});
+stage.addEventListener('mouseleave',()=>{pointerOverStage=false});
+stage.addEventListener('focusin',()=>{stageHasFocus=true});
+stage.addEventListener('focusout',event=>{if(!stage.contains(event.relatedTarget))stageHasFocus=false});
+selectIndustry(0);updatePauseButton();requestAnimationFrame(orbitFrame);
