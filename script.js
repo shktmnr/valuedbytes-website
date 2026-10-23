@@ -138,18 +138,9 @@ industryOptions.forEach((industry,i)=>{
   badge.addEventListener('click',()=>navigateToIndustry(i));
   badgeRoot.appendChild(badge);
 });
-document.getElementById('industryPrevious').addEventListener('click',()=>navigateToIndustry(currentIndustry-1));
-document.getElementById('industryNext').addEventListener('click',()=>navigateToIndustry(currentIndustry+1));
-const pauseButton=document.getElementById('industryPause');
-function updatePauseButton(){
-  pauseButton.textContent=isPaused?'▶':'Ⅱ';
-  pauseButton.setAttribute('aria-pressed',String(isPaused));
-  pauseButton.setAttribute('aria-label',isPaused?'Play automatic industry showcase':'Pause automatic industry showcase');
-}
-pauseButton.addEventListener('click',()=>{isPaused=!isPaused;updatePauseButton()});
 const stage=document.getElementById('industryStage');
 stage.addEventListener('mouseenter',()=>{pointerOverStage=true});
 stage.addEventListener('mouseleave',()=>{pointerOverStage=false});
 stage.addEventListener('focusin',()=>{stageHasFocus=true});
 stage.addEventListener('focusout',event=>{if(!stage.contains(event.relatedTarget))stageHasFocus=false});
-selectIndustry(0);updatePauseButton();requestAnimationFrame(orbitFrame);
+selectIndustry(0);requestAnimationFrame(orbitFrame);
