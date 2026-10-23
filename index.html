@@ -8,7 +8,7 @@
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20261023-smartschool-download">
+  <link rel="stylesheet" href="styles.css?v=20261023-industry-showcase">
 </head>
 <body>
   <header class="header" id="top"><div class="container header-inner">
@@ -18,15 +18,33 @@
     <button class="menu-button" aria-label="Open navigation" aria-expanded="false" aria-controls="navigation" id="menuButton"><i></i><i></i><i></i></button>
   </div></header>
   <main>
-    <section class="hero"><div class="hero-glow glow-one"></div><div class="hero-glow glow-two"></div><div class="container hero-grid">
-      <div class="hero-copy"><span class="pill"><span class="pulse"></span> YOUR IDEAS. OUR TECHNOLOGY. UNLIMITED POSSIBILITIES.</span><h1>We turn great ideas into <span>remarkable digital experiences.</span></h1><p>From a simple website to a powerful business platform, we design and build technology that makes work easier, businesses smarter, and possibilities bigger.</p><div class="hero-actions"><a class="button button-white button-large" href="#services">Explore Our Services <span>↗</span></a><a class="button button-outline button-large" href="#contact">Start a Project <span>→</span></a></div><div class="hero-reassurance"><span><b>✧</b> Tailored to your needs</span><span><b>✧</b> Thoughtfully designed</span><span><b>✧</b> Built to evolve</span></div></div>
-      <div class="hero-scene" aria-label="Illustration of connected web, mobile and desktop applications"><div class="scene-orbit scene-orbit-one"></div><div class="scene-orbit scene-orbit-two"></div><div class="scene-spark sp1">✦</div><div class="scene-spark sp2">✧</div>
-        <div class="mobile-showcase"><div class="mobile-showcase-head"><span class="mobile-showcase-icon">✦</span><span><strong>One digital partner.</strong><small>Everything connected, beautifully.</small></span></div><div class="mobile-showcase-services"><div><span>⌘</span><strong>Web Apps</strong></div><div><span>▯</span><strong>Mobile Apps</strong></div><div><span>✳</span><strong>AI Solutions</strong></div><div><span>▣</span><strong>Desktop Apps</strong></div></div><div class="mobile-showcase-foot"><span class="status-dot"></span> Built around your business <b>↗</b></div></div>
-        <div class="scene-desktop"><div class="desktop-top"><div class="top-dots"><i></i><i></i><i></i></div><span>VBT Workspace</span><span>◉</span></div><div class="desktop-inner"><div class="desktop-sidebar"><div>✦</div><i></i><i></i><i></i><i></i></div><div class="desktop-page"><small>YOUR BUSINESS AT A GLANCE</small><h3>Good morning, Alex 👋</h3><p>Here's an overview of your workspace.</p><div class="scene-cards"><div><b>24.8k</b><span>Visitors</span><em>↗ 18.2%</em></div><div><b>86%</b><span>Growth</span><em>↗ 12.4%</em></div></div><div class="scene-chart"><div style="height:37%"></div><div style="height:54%"></div><div style="height:47%"></div><div style="height:72%"></div><div style="height:60%"></div><div style="height:90%"></div><div style="height:79%"></div></div></div></div></div>
-        <div class="scene-phone"><div class="phone-notch"></div><div class="phone-content"><div class="phone-header">✦ <span>Hi, Alex!</span><b>☼</b></div><div class="phone-balance"><small>Today at a glance</small><strong>Everything<br>in sync.</strong><span>↗ All systems running</span></div><div class="phone-mini"><i>◫</i><span>Quick access<br><b>My projects</b></span>↗</div><div class="phone-mini"><i>◉</i><span>Stay updated<br><b>Insights</b></span>↗</div></div></div>
-        <div class="scene-chip chip-ai"><span>✳</span><div><b>AI-Powered</b><small>Smarter workflows</small></div></div><div class="scene-chip chip-secure"><span>✓</span><div><b>Connected & simple</b><small>Beautifully built</small></div></div><p class="scene-note">Conceptual product illustrations</p>
+    <section class="hero industry-hero" id="industries">
+      <div class="hero-glow glow-one"></div><div class="hero-glow glow-two"></div>
+      <div class="container industry-layout">
+        <div class="industry-copy" id="industryCopy">
+          <span class="industry-kicker"><span class="pulse"></span> TECHNOLOGY THAT WORKS FOR YOUR WORLD</span>
+          <p class="industry-pretitle">For <span id="industryAudience">schools &amp; colleges</span></p>
+          <h1 id="industryHeadline">Less paperwork.<br><span>More learning.</span></h1>
+          <p class="industry-description" id="industryDescription">Bring admissions, fees, attendance and reporting into one simple, organized experience. Spend less time on routine work and more time on what matters.</p>
+          <div class="industry-benefits" aria-label="Benefits"><span><b>✓</b> Easier everyday work</span><span><b>✓</b> More accuracy</span><span><b>✓</b> Better control</span></div>
+          <div class="hero-actions"><a class="button button-primary button-large" href="#services">Explore Our Services <span aria-hidden="true">↗</span></a><a class="button industry-secondary button-large" href="#contact">Let's Build Yours <span aria-hidden="true">→</span></a></div>
+          <p class="industry-footnote">Custom digital solutions for organizations of every size.</p>
+        </div>
+        <div class="industry-stage" id="industryStage" aria-label="Interactive industries showcase">
+          <div class="industry-ring ring-outer"></div><div class="industry-ring ring-inner"></div>
+          <div class="industry-orb-glow"></div>
+          <div class="industry-art-panel" id="industryArtPanel">
+            <div class="art-topline"><span class="art-dots"><i></i><i></i><i></i></span><span>VBT / YOUR WORKSPACE</span><span class="art-signal">● LIVE PREVIEW</span></div>
+            <div class="art-illustration" id="industryArt" aria-hidden="true"></div>
+            <div class="art-caption"><span class="art-caption-icon" id="industryIcon">✦</span><div><strong id="industryArtTitle">Smart education, made simple.</strong><small id="industryArtSubtitle">Admissions · Attendance · Fees</small></div></div>
+          </div>
+          <div class="industry-floating-label label-a">✧ Simple to use</div><div class="industry-floating-label label-b">✓ Made for your workflow</div>
+          <div class="industry-badge-cloud" id="industryBadges" aria-label="Select an industry"></div>
+          <div class="industry-controls"><button type="button" id="industryPrevious" aria-label="Previous industry">←</button><span id="industryCounter">01 / 12</span><button type="button" id="industryNext" aria-label="Next industry">→</button><button type="button" class="industry-pause" id="industryPause" aria-label="Pause automatic industry showcase" aria-pressed="false">Ⅱ</button></div>
+        </div>
       </div>
-    </div></section>
+      <div class="container industry-chooser"><span>EXPLORE SOLUTIONS FOR</span><div class="industry-mobile-badges" id="industryMobileBadges" aria-label="Choose an industry"></div></div>
+    </section>
     <section class="intro-band"><div class="container band-inner"><p>ONE TECHNOLOGY PARTNER.<br><strong>EVERY DIGITAL POSSIBILITY.</strong></p><div class="band-items"><span>⌘ Web</span><span>◈ Mobile</span><span>▣ Desktop</span><span>✳ Artificial Intelligence</span><span>◎ SaaS</span></div></div></section>
     <section id="services" class="section services-section"><div class="container"><div class="section-head row-head"><div><span class="eyebrow">WHAT WE DO</span><h2>Everything digital.<br><span class="gradient-text">One trusted team.</span></h2></div><p>Whether you're launching something new or modernizing what already exists, we bring strategy, design and development together to make it happen.</p></div>
       <div class="services-grid">
