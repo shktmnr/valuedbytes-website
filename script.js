@@ -55,22 +55,23 @@ function drawIndustryArt(kind){
   const shape=industryShapes[kind]||industryShapes.business;
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 215" role="img" aria-label="Line illustration"><circle cx="160" cy="105" r="95" fill="#d9f1fc" opacity=".72"/><circle cx="160" cy="105" r="70" fill="#effbff"/><g stroke="#207eb0" stroke-width="6" fill="#fff" stroke-linejoin="round" stroke-linecap="round">${shape}</g><g fill="#18b7bb" opacity=".7" class="art-detail"><circle cx="54" cy="52" r="7"/><circle cx="265" cy="44" r="5"/><path d="M252 148l8-13 8 13z"/></g><g fill="none" stroke="#7bc8e9" stroke-width="2" opacity=".9"><path d="M36 157h24M260 71h22M253 188h22"/></g></svg>`;
 }
-function selectIndustry(index){
+function selectIndustry(index,force=false){
   const normalized=(index+industryOptions.length)%industryOptions.length;
-  if(normalized===currentIndustry&&artRoot.firstChild)return;
+  if(normalized===currentIndustry&&artRoot.firstChild&&!force)return;
   currentIndustry=normalized;
   const item=industryOptions[currentIndustry];
-  audience.textContent=item.audience;
-  headline.replaceChildren(document.createTextNode(item.lead),document.createElement('br'),Object.assign(document.createElement('span'),{textContent:item.highlight}));
-  description.textContent=item.description;
+  const translate=window.vbtTranslate||((value)=>value);
+  audience.textContent=translate(item.audience);
+  headline.replaceChildren(document.createTextNode(translate(item.lead)),document.createElement('br'),Object.assign(document.createElement('span'),{textContent:translate(item.highlight)}));
+  description.textContent=translate(item.description);
   artPanel.classList.add('switching');
   artRoot.innerHTML=drawIndustryArt(item.art);
   document.getElementById('industryIcon').textContent=item.icon;
-  document.getElementById('industryArtTitle').textContent=item.title;
-  document.getElementById('industryArtSubtitle').textContent=item.tags;
+  document.getElementById('industryArtTitle').textContent=translate(item.title);
+  document.getElementById('industryArtSubtitle').textContent=translate(item.tags);
   document.getElementById('industryCounter').textContent=String(currentIndustry+1).padStart(2,'0')+' / '+String(industryOptions.length).padStart(2,'0');
-  badgeRoot.querySelectorAll('button').forEach((button,i)=>{button.classList.toggle('active',i===currentIndustry);button.setAttribute('aria-pressed',String(i===currentIndustry))});
-  mobileBadgeRoot.querySelectorAll('button').forEach((button,i)=>{button.classList.toggle('active',i===currentIndustry);button.setAttribute('aria-pressed',String(i===currentIndustry))});
+  badgeRoot.querySelectorAll('button').forEach((button,i)=>{button.textContent=translate(industryOptions[i].name);button.classList.toggle('active',i===currentIndustry);button.setAttribute('aria-pressed',String(i===currentIndustry))});
+  mobileBadgeRoot.querySelectorAll('button').forEach((button,i)=>{button.textContent=translate(industryOptions[i].name);button.classList.toggle('active',i===currentIndustry);button.setAttribute('aria-pressed',String(i===currentIndustry))});
   requestAnimationFrame(()=>requestAnimationFrame(()=>artPanel.classList.remove('switching')));
 }
 function angleDifference(from,to){

@@ -179,3 +179,31 @@
 .industry-badge.active{outline:2px solid #b8edfc;outline-offset:3px;scale:1.11}
 .industry-controls{bottom:1px;right:30%}
 @media(max-width:550px){.industry-badge-cloud{display:none}.industry-controls{right:8%}}
+
+/* Bilingual navigation and Urdu typesetting. */
+.header-actions{display:flex;align-items:center;gap:14px;margin-left:auto}
+.language-switch{border:1px solid #cbdff1;background:#f3f9ff;color:#16588a;border-radius:10px;padding:9px 15px;font-size:15px;font-weight:800;min-width:69px;white-space:nowrap;transition:background .2s,color .2s}
+.language-switch:hover,.language-switch:focus-visible{background:#0b6ed9;color:#fff}
+.urdu-mode{font-family:'Jameel Noori Nastaleeq','Jameel Noori Nastaleeq Kasheeda','Noto Nastaliq Urdu',serif}
+.urdu-mode h1,.urdu-mode h2,.urdu-mode h3,.urdu-mode h4,.urdu-mode p,.urdu-mode button,.urdu-mode a,.urdu-mode span,.urdu-mode strong,.urdu-mode small,.urdu-mode .eyebrow{font-family:'Jameel Noori Nastaleeq','Jameel Noori Nastaleeq Kasheeda','Noto Nastaliq Urdu',serif}
+.urdu-mode .brand-name,.urdu-mode .brand-name strong,.urdu-mode .brand-name small,.urdu-mode .product-name{font-family:'Plus Jakarta Sans',sans-serif;direction:ltr;text-align:left}
+.urdu-mode .industry-copy h1{line-height:1.67;letter-spacing:0;font-size:clamp(35px,3.7vw,53px);min-height:175px}
+.urdu-mode .industry-description{line-height:2.35;font-size:16px;min-height:138px}
+.urdu-mode .industry-pretitle{font-size:17px}.urdu-mode .industry-benefits{font-size:13px}
+.urdu-mode .industry-kicker,.urdu-mode .industry-chooser>span,.urdu-mode .eyebrow{letter-spacing:0}
+.urdu-mode .industry-badge,.urdu-mode .industry-mobile-badges button{line-height:1.7;font-size:13px}
+.urdu-mode .industry-badge{padding:5px 13px}
+.urdu-mode .industry-controls{right:auto;left:23%}
+.urdu-mode .art-caption strong{font-size:14px;line-height:1.75}
+.urdu-mode .art-caption small{font-size:12px;line-height:1.8}
+.urdu-mode .product-card h3,.urdu-mode .service-card h3{letter-spacing:0;line-height:1.9}
+.urdu-mode .product-description,.urdu-mode .product-feature-list span,.urdu-mode .service-card p,.urdu-mode .step p,.urdu-mode .about-copy>p,.urdu-mode .faq-list details p{line-height:2.2}
+.urdu-mode .product-type,.urdu-mode .product-status,.urdu-mode .product-card h4,.urdu-mode .product-bottom small,.urdu-mode .download-support-links a{letter-spacing:0;font-size:13px;line-height:1.9}
+.urdu-mode .section h2{letter-spacing:0;line-height:1.7}
+.urdu-mode .footer-bottom{line-height:2}
+.urdu-mode .product-feature-list span{padding:10px 25px 10px 10px}
+.urdu-mode .product-feature-list span:before{left:auto;right:9px}
+.urdu-mode .art-topline,.urdu-mode .visual-toolbar,.urdu-mode .desktop-window-inner{direction:ltr}
+.urdu-mode .hero-actions .button span,.urdu-mode .product-bottom .button span{direction:ltr}
+@media(max-width:820px){.header-actions{margin-left:auto;margin-right:0}.urdu-mode .industry-copy h1{min-height:0;font-size:45px;line-height:1.6}.urdu-mode .industry-description{min-height:0}.urdu-mode .industry-controls{left:28%}}
+@media(max-width:550px){.header-actions{margin-left:auto;gap:0}.language-switch{padding:7px 9px;font-size:13px;min-width:54px}.urdu-mode .industry-copy h1{font-size:clamp(32px,8.5vw,39px);line-height:1.75}.urdu-mode .industry-description{font-size:15px;line-height:2.3}.urdu-mode .industry-badge{font-size:13px}.urdu-mode .industry-controls{left:5%;right:auto}.urdu-mode .industry-mobile-badges button{font-size:14px}.urdu-mode .section h2{font-size:31px;line-height:1.85}.urdu-mode .product-card h3{font-size:21px}}
