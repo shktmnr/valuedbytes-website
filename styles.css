@@ -142,7 +142,7 @@
 .industry-orb-glow{width:70%;aspect-ratio:1;position:absolute;border-radius:50%;background:radial-gradient(circle,#c1e7ff 5%,#dcf4ff8a 54%,transparent 72%);filter:blur(8px)}
 .industry-art-panel{position:relative;z-index:2;width:min(370px,75%);min-height:360px;border:1px solid #d9e9f3;border-radius:26px;overflow:hidden;background:linear-gradient(150deg,#fff,#f7fbff);box-shadow:0 30px 90px #16588f25,0 8px 26px #2e88a214;transform:rotate(-3deg);transition:transform .45s ease,opacity .3s ease}
 .industry-art-panel:hover{transform:rotate(0deg) translateY(-5px)}
-.industry-art-panel.switching{opacity:.38;transform:translateY(9px) rotate(-1deg)}
+
 .art-topline{height:42px;padding:0 16px;border-bottom:1px solid #e9f1f8;display:flex;align-items:center;gap:10px;justify-content:space-between;font-size:9px;font-weight:800;letter-spacing:.6px;color:#94a9bb}
 .art-dots{display:flex;gap:4px}.art-dots i{width:6px;height:6px;border-radius:50%;background:#bdd6e8}.art-dots i:first-child{background:#ffb8a6}.art-signal{font-size:8px;color:#23a484;white-space:nowrap}
 .art-illustration{height:246px;display:grid;place-items:center;padding:14px;background:radial-gradient(circle at 50% 50%,#e8f7ff 0%,#f8fcff 73%);overflow:hidden}
@@ -283,3 +283,22 @@
 /* Keep orbit controls below the active six-o'clock badge. */
 @media (max-width:820px) and (min-width:551px){.industry-layout{padding-bottom:78px;row-gap:38px}}
 @media (max-width:550px){.industry-controls{bottom:2px}}
+
+/* Seamless industry changes: fixed content slots and composited SVG crossfade. */
+.art-illustration svg{grid-area:1/1;opacity:0;transition:opacity .62s cubic-bezier(.22,1,.36,1)}
+.art-illustration svg.is-visible{opacity:1}
+@keyframes industryContentIn{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+.industry-copy.industry-content-enter .industry-pretitle,
+.industry-copy.industry-content-enter #industryHeadline,
+.industry-copy.industry-content-enter .industry-description,
+.industry-copy.industry-content-enter .industry-toolkit,
+.art-caption.industry-content-enter{animation:industryContentIn .58s cubic-bezier(.22,1,.36,1) both}
+.industry-badge{transition:background .48s ease,color .48s ease,border-color .48s ease,box-shadow .48s ease,scale .48s ease,opacity .3s ease}
+@media(prefers-reduced-motion:reduce){
+  .art-illustration svg{transition:none!important}
+  .industry-copy.industry-content-enter .industry-pretitle,
+  .industry-copy.industry-content-enter #industryHeadline,
+  .industry-copy.industry-content-enter .industry-description,
+  .industry-copy.industry-content-enter .industry-toolkit,
+  .art-caption.industry-content-enter{animation:none!important}
+}
