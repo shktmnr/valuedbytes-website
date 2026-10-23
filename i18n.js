@@ -96,6 +96,24 @@ const urdu={
   'Start a Conversation ↗':'بات چیت شروع کیجیے ↗',
   'Valued Bytes Technologies. All rights reserved.':'ویلیوڈ بائٹس ٹیکنالوجیز۔ جملہ حقوق محفوظ ہیں۔',
   'Made with purpose ✦':'مقصد کے ساتھ بنایا گیا ✦',
+  // Additional hero benefits and industry-tailored capabilities.
+  'YOUR SMART WORKSPACE COULD INCLUDE':'آپ کے لیے تیار کردہ نظام میں یہ سہولتیں ہو سکتی ہیں',
+  'Less manual work':'کم دستی کام','Turn repeat tasks into simple workflows':'بار بار ہونے والے کام آسان بنائیے',
+  'Accurate records':'درست ریکارڈ','Keep essential information organized':'ضروری معلومات ترتیب سے رکھیے',
+  'Clear reports':'واضح رپورٹس','Understand what matters at a glance':'اہم صورتحال ایک نظر میں جانیے',
+  'Made around you':'آپ کی ضرورت کے مطابق','Designed for your team and goals':'آپ کی ٹیم اور مقاصد کے مطابق ڈیزائن',
+  'Admissions':'داخلے','Fee management':'فیس کا انتظام','Attendance':'حاضری',
+  'Point of sale':'سیلز کاؤنٹر','Inventory':'اسٹاک','Customer records':'گاہکوں کا ریکارڈ',
+  'Invoicing':'بل بنانا','Team tasks':'ٹیم کے کام','Business insights':'کاروباری تجزیات',
+  'Fuel sales':'فیول کی فروخت','Shift management':'شفٹس کا انتظام','Stock reports':'اسٹاک کی رپورٹس',
+  'Tenant management':'کرایہ داروں کا انتظام','Rent billing':'کرایہ اور بلنگ','Maintenance':'دیکھ بھال',
+  'Appointments':'اپائنٹمنٹس','Patient records':'مریضوں کا ریکارڈ','Staff schedules':'عملے کا شیڈول',
+  'Order management':'آرڈرز کا انتظام','Billing':'بلنگ','Kitchen workflow':'کچن کا نظام',
+  'Stock tracking':'اسٹاک کی نگرانی','Purchasing':'خریداری','Dispatch':'ترسیل',
+  'Property listings':'پراپرٹی لسٹنگ','Client leads':'ممکنہ گاہک','Follow-ups':'فالو اپ',
+  'Room bookings':'کمروں کی بکنگ','Guest records':'مہمانوں کا ریکارڈ','Payments':'ادائیگیاں',
+  'Production tracking':'پیداوار کی نگرانی','Raw materials':'خام مال','Stock control':'اسٹاک کا کنٹرول',
+  'Appointment booking':'اپائنٹمنٹ بکنگ','Client profiles':'گاہکوں کی معلومات',
   // Hero industry labels and dynamic copy.
   'Schools & Colleges':'اسکول اور کالج','Retail Stores':'دکانیں اور اسٹورز','Businesses':'کاروبار',
   'Petrol Pumps':'پیٹرول پمپس','Shopping Malls':'شاپنگ مالز','Hospitals & Clinics':'ہسپتال اور کلینکس',
@@ -180,6 +198,8 @@ function setWebsiteLanguage(language){
   const button=document.getElementById('languageSwitch');
   button.textContent=currentLanguage==='ur'?'English':'اردو';
   button.setAttribute('aria-label',currentLanguage==='ur'?'Switch website language to English':'ویب سائٹ اردو میں دیکھیے');
+  const forPrefix=document.getElementById('industryForPrefix');
+  if(forPrefix)forPrefix.textContent=currentLanguage==='ur'?'':'For ';
   selectIndustry(currentIndustry,true);
   try{localStorage.setItem('vbt-site-language',currentLanguage)}catch{}
 }

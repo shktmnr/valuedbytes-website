@@ -19,6 +19,20 @@ const industryOptions=[
   {name:'Factories',audience:'factories & manufacturers',lead:'Simpler processes.',highlight:'Stronger output.',description:'Make production records, materials, inventory and team workflows easier to follow and manage day after day.',icon:'⚙',title:'Practical tools for production.',tags:'Production · Materials · Teams',art:'factory'},
   {name:'Salons & Spas',audience:'salons & service studios',lead:'More bookings.',highlight:'Less juggling.',description:'Organize appointments, services, customer records and payments in a calm, easy-to-use digital workspace.',icon:'✳',title:'Your appointments, beautifully organized.',tags:'Booking · Clients · Billing',art:'salon'}
 ];
+const industryToolkits=[
+  ['Admissions','Fee management','Attendance'],
+  ['Point of sale','Inventory','Customer records'],
+  ['Invoicing','Team tasks','Business insights'],
+  ['Fuel sales','Shift management','Stock reports'],
+  ['Tenant management','Rent billing','Maintenance'],
+  ['Appointments','Patient records','Staff schedules'],
+  ['Order management','Billing','Kitchen workflow'],
+  ['Stock tracking','Purchasing','Dispatch'],
+  ['Property listings','Client leads','Follow-ups'],
+  ['Room bookings','Guest records','Payments'],
+  ['Production tracking','Raw materials','Stock control'],
+  ['Appointment booking','Client profiles','Payments']
+];
 const industryShapes={
   school:'<path d="M55 125V72L160 30l105 42v53M86 125V87h148v38M130 125V96h60v29"/><path d="M49 126h222M152 44v23m-12-12h24"/><rect x="96" y="94" width="21" height="20" rx="3"/><rect x="204" y="94" width="21" height="20" rx="3"/>',
   store:'<path d="M65 68h190l-13 33H78L65 68ZM80 103v69h160v-69M121 172v-49h70v49"/><path d="M76 101q12 24 27 0 14 24 28 0 13 24 28 0 13 24 28 0 14 24 27 0 14 24 28 0"/><path d="M99 55h121"/>',
@@ -64,6 +78,12 @@ function selectIndustry(index,force=false){
   audience.textContent=translate(item.audience);
   headline.replaceChildren(document.createTextNode(translate(item.lead)),document.createElement('br'),Object.assign(document.createElement('span'),{textContent:translate(item.highlight)}));
   description.textContent=translate(item.description);
+  const toolkit=document.getElementById('industryToolkit');
+  if(toolkit)toolkit.replaceChildren(...industryToolkits[currentIndustry].map(feature=>{
+    const chip=document.createElement('span');
+    chip.textContent='✦ '+translate(feature);
+    return chip;
+  }));
   artPanel.classList.add('switching');
   artRoot.innerHTML=drawIndustryArt(item.art);
   document.getElementById('industryIcon').textContent=item.icon;
