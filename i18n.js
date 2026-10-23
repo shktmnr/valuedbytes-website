@@ -3,10 +3,10 @@
 const urdu={
   'Services':'خدمات','Solutions':'حل اور مصنوعات','Our Approach':'ہمارا طریقۂ کار','About Us':'ہمارے بارے میں','Contact':'رابطہ',
   "Let's Talk":'بات کیجیے','TECHNOLOGY THAT WORKS FOR YOUR WORLD':'آپ کی دنیا کے لیے مفید ٹیکنالوجی',
-  'For':'کے لیے','Easier everyday work':'روزمرہ کام آسان','More accuracy':'زیادہ درستگی','Better control':'بہتر کنٹرول',
+  'For':'کے لیے','Easier everyday work':'روزمرہ کام میں آسانی','More accuracy':'زیادہ درستگی','Better control':'بہتر کنٹرول',
   'Explore Our Services':'ہماری خدمات دیکھیے',"Let's Build Yours":'اپنا سافٹ ویئر بنوائیے',
-  'Custom digital solutions for organizations of every size.':'ہر سائز کے ادارے کے لیے اس کی ضرورت کے مطابق ڈیجیٹل حل۔',
-  'VBT / YOUR WORKSPACE':'وی بی ٹی / آپ کا ورک اسپیس','● LIVE PREVIEW':'● نمائشی منظر',
+  'Custom digital solutions for organizations of every size.':'ہر طرح کے ادارے کے لیے اس کی ضرورت کے مطابق ڈیجیٹل حل۔',
+  'VBT / YOUR WORKSPACE':'وی بی ٹی / آپ کا ورک اسپیس','● LIVE PREVIEW':'● لائیو',
   '✧ Simple to use':'✧ استعمال میں آسان','✓ Made for your workflow':'✓ آپ کے کام کے مطابق',
   'EXPLORE SOLUTIONS FOR':'کس شعبے کے لیے حل چاہیے؟',
   'ONE TECHNOLOGY PARTNER.':'ٹیکنالوجی کا ایک قابلِ اعتماد ساتھی۔','EVERY DIGITAL POSSIBILITY.':'ہر ڈیجیٹل امکان۔',
@@ -32,27 +32,27 @@ const urdu={
   'OUR PRODUCTS':'ہماری مصنوعات','One vision.':'ایک سوچ۔','Two smart solutions.':'دو بہترین حل۔',
   'Education management, thoughtfully built for different needs. Explore our online SaaS platform and our Windows desktop application.':
     'تعلیمی اداروں کے لیے دو الگ حل: ہمارا آن لائن ساس پلیٹ فارم اور ونڈوز ڈیسک ٹاپ ایپلی کیشن۔',
-  'In Development':'زیرِ تیاری','ONLINE SAAS PLATFORM':'آن لائن ساس پلیٹ فارم',
+  'In Development':'جلد مکمل ہو رہا ہے','ONLINE SAAS PLATFORM':'آن لائن ساس پلیٹ فارم',
   'Your campus, connected from anywhere.':'آپ کا ادارہ، ہر جگہ سے منسلک۔',
   'A cloud-based education management platform being developed for schools and colleges. Our goal is to connect institutional teams, everyday tasks and important information through one beautifully simple experience.':
-    'اسکولوں اور کالجوں کے لیے زیرِ تیاری کلاؤڈ بیسڈ تعلیمی انتظامی نظام، جس کا مقصد عملے، روزمرہ کاموں اور ضروری معلومات کو ایک آسان پلیٹ فارم پر لانا ہے۔',
+    'اسکولوں اور کالجوں کے لیے زیرِ تعمیر کلاؤڈ بیسڈ تعلیمی انتظامی نظام، جس کا مقصد عملے، روزمرہ کاموں اور ضروری معلومات کو ایک آسان پلیٹ فارم پر لانا ہے۔',
   'Planned areas of focus':'متوقع اہم شعبے','Admissions & students':'داخلے اور طلبہ','Academics & exams':'تعلیم اور امتحانات',
-  'Fees & reporting':'فیس اور رپورٹس','Communication':'رابطہ کاری',
+  'Fees & reporting':'فیس اور رپورٹس','Communication':'رابطے کا نظام',
   'Explore SmartCampus':'اسمارٹ کیمپس دیکھیے','Preview the product vision and planned experience.':'پلیٹ فارم کا تصور اور متوقع خصوصیات دیکھیے۔',
   'Windows v1.1.0 Available':'ونڈوز ورژن 1.1.0 دستیاب','WINDOWS DESKTOP SOFTWARE':'ونڈوز ڈیسک ٹاپ سافٹ ویئر',
   'Run your school with confidence, even offline.':'انٹرنیٹ کے بغیر بھی اپنا اسکول اعتماد سے چلائیے۔',
   'Our developed Windows school management application brings the essentials of school administration together in a practical, offline-first workspace with local data storage.':
-    'ہمارا تیار شدہ ونڈوز اسکول مینجمنٹ سافٹ ویئر انتظامی ضروریات کو ایک آسان نظام میں جمع کرتا ہے، جو مقامی ڈیٹا اسٹوریج کے ساتھ آف لائن بھی کام کرتا ہے۔',
+    'ہمارا تیار شدہ ونڈوز اسکول مینجمنٹ سافٹ ویئر انتظامی ضروریات کو ایک آسان نظام میں جمع کرتا ہے، جو لوکل ڈیٹا اسٹوریج کے ساتھ آف لائن بھی کام کرتا ہے۔',
   'Key modules':'اہم ماڈیولز','Students & staff':'طلبہ اور عملہ','Fees & salaries':'فیس اور تنخواہیں',
   'Attendance & exams':'حاضری اور امتحانات','Reports & backups':'رپورٹس اور بیک اپ',
   'Download for Windows':'ونڈوز کے لیے ڈاؤن لوڈ','Installation guide':'انسٹالیشن گائیڈ',
   'Release notes & requirements':'ورژن کی تفصیل اور ضروریات','SHA256 checksum':'SHA256 تصدیق',
   'Windows 10/11 (64-bit) · License activation required · Installer is currently unsigned; review the release notes before installing.':
     'ونڈوز 10/11 (64 بٹ) · لائسنس فعال کرنا ضروری ہے · انسٹالر فی الحال ڈیجیٹل دستخط شدہ نہیں؛ انسٹال کرنے سے پہلے ورژن کی تفصیل پڑھیں۔',
-  'Two separate products, one commitment to simplicity.':'دو الگ مصنوعات، آسانی کا ایک ہی وعدہ۔',
+  'Two separate products, one commitment to simplicity.':'دو الگ مصنوعات، آسانیکے وعدے کے ساتھ۔',
   'SmartCampus is our online SaaS project in development. SmartSchool is our Windows desktop application. Their deployment, data storage and licensing are independent.':
-    'اسمارٹ کیمپس ہمارا زیرِ تیاری آن لائن ساس پراجیکٹ ہے، جبکہ اسمارٹ اسکول ونڈوز ڈیسک ٹاپ ایپ ہے۔ دونوں کے ڈیٹا، انسٹالیشن اور لائسنس الگ ہیں۔',
-  'A good idea deserves':'اچھا خیال حق دار ہے','a great journey.':'ایک بہترین سفر کا۔',
+    'اسمارٹ کیمپس ہمارا زیرِ تعمیر آن لائن ساس پراجیکٹ ہے، جبکہ اسمارٹ اسکول ونڈوز ڈیسک ٹاپ ایپ ہے۔ دونوں کے ڈیٹا، انسٹالیشن اور لائسنس الگ ہیں۔',
+  'A good idea deserves':'آپ کے آئیڈیا منتظر ہے ','a great journey.':'جدید دور میں بہترین عمل کا۔',
   'We keep the process collaborative, clear and focused on outcomes that actually matter to your business.':
     'ہم ہر مرحلہ باہمی مشاورت، شفافیت اور آپ کے کاروبار کے لیے مفید نتائج کو سامنے رکھ کر طے کرتے ہیں۔',
   "Let's understand":'پہلے سمجھتے ہیں','We listen to your goals, users and the challenges you want to solve.':'ہم آپ کے مقاصد، صارفین اور مسائل کو غور سے سنتے ہیں۔',
@@ -60,12 +60,12 @@ const urdu={
   "Let's build":'پھر تیار کرتے ہیں','We bring the design to life and refine it with careful testing.':'ڈیزائن کو حقیقی سافٹ ویئر میں بدلتے اور اچھی طرح جانچتے ہیں۔',
   "Let's grow":'اور آگے بڑھتے ہیں','We help plan improvements as your product and ambitions evolve.':'کاروبار بڑھنے کے ساتھ مزید بہتری کی منصوبہ بندی کرتے ہیں۔',
   'WHY VALUED BYTES?':'ویلیوڈ بائٹس کیوں؟','Technology':'ٹیکنالوجی','with':'کے ساتھ','Values.':'اقدار۔',
-  'Human-centered':'انسانوں کی سہولت کے لیے','Built with purpose ✳':'مقصد کے ساتھ تیار ✳',
+  'Human-centered':'انسانوں کی سہولت کے لیے','Built with purpose ✳':' ایک واضح مقصد کے ساتھ تیار ✳',
   'Because technology should be':'کیونکہ ٹیکنالوجی ہونی چاہیے','about people.':'لوگوں کے لیے۔',
   "We're Valued Bytes Technologies — a software-focused brand guided by a simple belief: digital innovation should be useful, approachable and built with care.":
     'ویلیوڈ بائٹس ٹیکنالوجیز میں ہمارا یقین ہے کہ جدید ٹیکنالوجی مفید، آسان اور ذمہ داری کے ساتھ تیار ہونی چاہیے۔',
   'We bring a human perspective to technical challenges, combining thoughtful design with purposeful development to create solutions people can feel good about using.':
-    'ہم تکنیکی مسائل کو انسانی ضروریات کے تناظر میں دیکھتے ہیں، تاکہ سافٹ ویئر خوب صورت بھی ہو اور استعمال میں خوش گوار بھی۔',
+    'ہم تکنیکی مسائل کو انسانی ضروریات کے تناظر میں دیکھتے ہیں، تاکہ سافٹ ویئر خوب صورت بھی ہو اور استعمال میں خوش گوار اور آسان بھی۔',
   'People first':'لوگ سب سے پہلے','Experiences that respect the people behind every click.':'ہر استعمال کرنے والے کی آسانی کو اہمیت۔',
   'Clarity by design':'واضح اور آسان ڈیزائن','Beautifully simple interfaces with practical purpose.':'خوب صورت، سادہ اور بامقصد انٹرفیس۔',
   'GOOD TO KNOW':'چند ضروری باتیں','Questions?':'سوالات ہیں؟',"Let's make it clear.":'آئیے سمجھتے ہیں۔',
