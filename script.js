@@ -68,9 +68,71 @@ function drawIndustryArt(kind){
   const shape=industryShapes[kind]||industryShapes.business;
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 215" role="img" aria-label="Line illustration"><circle cx="160" cy="105" r="95" fill="#d9f1fc" opacity=".72"/><circle cx="160" cy="105" r="70" fill="#effbff"/><g stroke="#207eb0" stroke-width="6" fill="#fff" stroke-linejoin="round" stroke-linecap="round">${shape}</g><g fill="#18b7bb" opacity=".7" class="art-detail"><circle cx="54" cy="52" r="7"/><circle cx="265" cy="44" r="5"/><path d="M252 148l8-13 8 13z"/></g><g fill="none" stroke="#7bc8e9" stroke-width="2" opacity=".9"><path d="M36 157h24M260 71h22M253 188h22"/></g></svg>`;
 }
+const copyRoot=document.getElementById('industryCopy');
+let measuredCopyKey='';
+
+// Reserve the largest responsive text slots so changing industries never resizes the hero.
+function stabilizeIndustryCopy(){
+  const width=Math.round(copyRoot.getBoundingClientRect().width);
+  if(!width)return;
+  const key=document.documentElement.lang+':'+width;
+  if(key===measuredCopyKey)return;
+  const selectors=['.industry-pretitle','#industryHeadline','#industryDescription','.industry-toolkit'];
+  const live=selectors.map(selector=>copyRoot.querySelector(selector));
+  live.forEach(element=>element.style.removeProperty('min-height'));
+  const baseline=live.map(element=>parseFloat(getComputedStyle(element).minHeight)||0);
+  const tester=copyRoot.cloneNode(true);
+  tester.classList.remove('industry-content-enter');
+  const pretitle=tester.querySelector('.industry-pretitle');
+  const audienceNode=tester.querySelector('#industryAudience');
+  const heading=tester.querySelector('#industryHeadline');
+  const summary=tester.querySelector('#industryDescription');
+  const toolkit=tester.querySelector('.industry-toolkit');
+  const toolkitItems=tester.querySelector('#industryToolkit');
+  tester.querySelectorAll('[id]').forEach(element=>element.removeAttribute('id'));
+  [pretitle,heading,summary,toolkit].forEach(element=>element.style.minHeight='0px');
+  tester.setAttribute('aria-hidden','true');
+  Object.assign(tester.style,{position:'absolute',left:'-10000px',top:'0',width:width+'px',height:'auto',minHeight:'0',visibility:'hidden',pointerEvents:'none'});
+  copyRoot.parentElement.appendChild(tester);
+  const maxHeights=[...baseline];
+  const translate=window.vbtTranslate||((value)=>value);
+  industryOptions.forEach((item,i)=>{
+    audienceNode.textContent=translate(item.audience);
+    heading.replaceChildren(document.createTextNode(translate(item.lead)),document.createElement('br'),Object.assign(document.createElement('span'),{textContent:translate(item.highlight)}));
+    summary.textContent=translate(item.description);
+    toolkitItems.replaceChildren(...industryToolkits[i].map(feature=>Object.assign(document.createElement('span'),{textContent:'✦ '+translate(feature)})));
+    [pretitle,heading,summary,toolkit].forEach((element,j)=>{maxHeights[j]=Math.max(maxHeights[j],element.getBoundingClientRect().height)});
+  });
+  tester.remove();
+  live.forEach((element,i)=>{element.style.minHeight=Math.ceil(maxHeights[i]+1)+'px'});
+  measuredCopyKey=key;
+}
+
+// Keep old and new illustrations in the same grid cell for a soft crossfade.
+function transitionIndustryArt(kind){
+  const holder=document.createElement('div');
+  holder.innerHTML=drawIndustryArt(kind);
+  const incoming=holder.firstElementChild;
+  const outgoing=artRoot.querySelector('svg.is-visible');
+  if(!outgoing||prefersLessMotion){
+    incoming.classList.add('is-visible');
+    artRoot.replaceChildren(incoming);
+    return;
+  }
+  artRoot.querySelectorAll('svg:not(.is-visible)').forEach(svg=>svg.remove());
+  artRoot.appendChild(incoming);
+  outgoing.addEventListener('transitionend',event=>{
+    if(event.propertyName==='opacity')outgoing.remove();
+  });
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{
+    incoming.classList.add('is-visible');
+    outgoing.classList.remove('is-visible');
+  }));
+}
 function selectIndustry(index,force=false){
   const normalized=(index+industryOptions.length)%industryOptions.length;
   if(normalized===currentIndustry&&artRoot.firstChild&&!force)return;
+  const wasRendered=Boolean(artRoot.firstElementChild);
   currentIndustry=normalized;
   const item=industryOptions[currentIndustry];
   const translate=window.vbtTranslate||((value)=>value);
@@ -83,13 +145,20 @@ function selectIndustry(index,force=false){
     chip.textContent='✦ '+translate(feature);
     return chip;
   }));
-  artPanel.classList.add('switching');
-  artRoot.innerHTML=drawIndustryArt(item.art);
+  transitionIndustryArt(item.art);
   document.getElementById('industryIcon').textContent=item.icon;
   document.getElementById('industryArtTitle').textContent=translate(item.title);
   document.getElementById('industryArtSubtitle').textContent=translate(item.tags);
   badgeRoot.querySelectorAll('button').forEach((button,i)=>{button.textContent=translate(industryOptions[i].name);button.classList.toggle('active',i===currentIndustry);button.setAttribute('aria-pressed',String(i===currentIndustry))});
-  requestAnimationFrame(()=>requestAnimationFrame(()=>artPanel.classList.remove('switching')));
+  stabilizeIndustryCopy();
+  if(wasRendered&&!prefersLessMotion){
+    const caption=artPanel.querySelector('.art-caption');
+    copyRoot.classList.remove('industry-content-enter');
+    caption.classList.remove('industry-content-enter');
+    void copyRoot.offsetWidth;
+    copyRoot.classList.add('industry-content-enter');
+    caption.classList.add('industry-content-enter');
+  }
 }
 function angleDifference(from,to){
   const count=industryOptions.length;
@@ -143,4 +212,7 @@ stage.addEventListener('mouseenter',()=>{pointerOverStage=true});
 stage.addEventListener('mouseleave',()=>{pointerOverStage=false});
 stage.addEventListener('focusin',()=>{stageHasFocus=true});
 stage.addEventListener('focusout',event=>{if(!stage.contains(event.relatedTarget))stageHasFocus=false});
-selectIndustry(0);requestAnimationFrame(orbitFrame);
+selectIndustry(0);
+window.addEventListener('resize',()=>{measuredCopyKey='';stabilizeIndustryCopy()},{passive:true});
+if(document.fonts)document.fonts.ready.then(()=>{measuredCopyKey='';stabilizeIndustryCopy()});
+requestAnimationFrame(orbitFrame);
