@@ -223,7 +223,7 @@
 .toolkit-items{display:flex;flex-wrap:wrap;gap:8px}
 .toolkit-items span{display:inline-flex;align-items:center;background:#ffffffd9;border:1px solid #cce5f5;border-radius:10px;padding:9px 12px;font-weight:700;font-size:12px;color:#266184;box-shadow:0 5px 14px #13549a09;transition:transform .25s,opacity .25s}
 .toolkit-items span:hover{transform:translateY(-2px)}
-.industry-value-bar{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px;padding:0 0 29px}
+.industry-value-bar{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px;padding:28px 0 29px;border-top:1px solid #ccdfec80}
 .industry-value-bar>div{background:#ffffffb8;border:1px solid #d7e9f4;box-shadow:0 7px 24px #1267a609;border-radius:16px;padding:17px 16px;min-width:0}
 .industry-value-bar .value-icon{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:9px;background:#e6f6ff;color:#0b83c9;font-size:18px;margin-bottom:10px}
 .industry-value-bar strong,.industry-value-bar small{display:block}
