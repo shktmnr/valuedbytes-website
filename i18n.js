@@ -166,7 +166,7 @@ while(walker.nextNode()){
   staticTextNodes.push([node,node.nodeValue]);
 }
 let currentLanguage='en';
-window.vbtTranslate=(str)=>currentLanguage==='ur'?(urdu[str]||str):str;
+window.vbtTranslate=(str)=>currentLanguage==='ur'?(urdu[str]??str):str;
 function setWebsiteLanguage(language){
   currentLanguage=language==='ur'?'ur':'en';
   document.documentElement.lang=currentLanguage;
