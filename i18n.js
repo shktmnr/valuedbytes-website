@@ -206,4 +206,4 @@ function setWebsiteLanguage(language){
 document.getElementById('languageSwitch').addEventListener('click',()=>setWebsiteLanguage(currentLanguage==='en'?'ur':'en'));
 let savedLanguage='en';
 try{savedLanguage=localStorage.getItem('vbt-site-language')||'en'}catch{}
-setWebsiteLanguage(savedLanguage);
+setWebsiteLanguage('en');

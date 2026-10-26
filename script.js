@@ -65,47 +65,43 @@ let pointerOverStage=false;
 let stageHasFocus=false;
 let recentlySelectedUntil=0;
 function drawIndustryArt(kind){
+  const variant=currentIndustry%3;
   const shape=industryShapes[kind]||industryShapes.business;
-  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 215" role="img" aria-label="Line illustration"><circle cx="160" cy="105" r="95" fill="#d9f1fc" opacity=".72"/><circle cx="160" cy="105" r="70" fill="#effbff"/><g stroke="var(--industry-accent, #207eb0)" stroke-width="6" fill="#fff" stroke-linejoin="round" stroke-linecap="round">${shape}</g><g fill="var(--industry-accent, #18b7bb)" opacity=".7" class="art-detail"><circle cx="54" cy="52" r="7"/><circle cx="265" cy="44" r="5"/><path d="M252 148l8-13 8 13z"/></g><g fill="none" stroke="#7bc8e9" stroke-width="2" opacity=".9"><path d="M36 157h24M260 71h22M253 188h22"/></g></svg>`;
+  const windowShell='<rect x="15" y="18" width="290" height="178" rx="16" fill="#fff" stroke="#cfdeee" stroke-width="2"/><path d="M15 51h290" stroke="#e7eff7"/><circle cx="34" cy="36" r="4" fill="#ffaca5"/><circle cx="47" cy="36" r="4" fill="#ffd59a"/><circle cx="60" cy="36" r="4" fill="#a0e6bd"/>';
+  const symbol='<g transform="translate(0 0)"><circle cx="0" cy="0" r="20" fill="var(--industry-soft,#e4f5ff)"/><g transform="translate(-22 -20) scale(.14)" fill="none" stroke="var(--industry-accent,#137dea)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">'+shape+'</g></g>';
+  let content='';
+  if(variant===0){
+    content=windowShell+
+    '<rect x="15" y="51" width="61" height="145" rx="0" fill="#f2f7fd"/><rect x="28" y="66" width="35" height="7" rx="3" fill="#8cb8d7"/><rect x="28" y="84" width="30" height="5" rx="2" fill="#c0d9ec"/><rect x="28" y="97" width="37" height="5" rx="2" fill="#c0d9ec"/><rect x="28" y="110" width="27" height="5" rx="2" fill="#c0d9ec"/>'+
+    '<text x="93" y="75" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="#244768">Overview</text>'+
+    '<rect x="93" y="87" width="57" height="43" rx="8" fill="#e8f4ff"/><rect x="158" y="87" width="57" height="43" rx="8" fill="#e4f8ee"/><rect x="223" y="87" width="57" height="43" rx="8" fill="#f2eaff"/>'+
+    '<rect x="103" y="97" width="24" height="5" rx="2" fill="#9fc9e8"/><rect x="103" y="109" width="34" height="8" rx="3" fill="var(--industry-accent,#1478e6)"/>'+
+    '<rect x="169" y="97" width="22" height="5" rx="2" fill="#a0d9c0"/><rect x="169" y="109" width="31" height="8" rx="3" fill="#4bbc98"/>'+
+    '<rect x="233" y="97" width="22" height="5" rx="2" fill="#c0b1ed"/><rect x="233" y="109" width="31" height="8" rx="3" fill="#a188e0"/>'+
+    '<rect x="93" y="139" width="187" height="43" rx="7" fill="#f8fbff"/><path d="M107 170l28-13 22 6 25-14 25 8 26-18 30 6" fill="none" stroke="var(--industry-accent,#1478e6)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>';
+  }else if(variant===1){
+    content='<rect x="100" y="6" width="120" height="204" rx="25" fill="#143354"/><rect x="106" y="13" width="108" height="190" rx="20" fill="#f8fcff"/><rect x="136" y="19" width="49" height="9" rx="5" fill="#143354"/>'+
+    '<text x="121" y="51" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#254463">Dashboard</text>'+
+    '<rect x="120" y="61" width="80" height="57" rx="13" fill="var(--industry-accent,#1478e6)" opacity=".87"/><rect x="131" y="75" width="34" height="5" rx="2" fill="#ffffffb5"/><rect x="131" y="91" width="55" height="9" rx="4" fill="#fff"/>'+
+    '<rect x="120" y="129" width="36" height="36" rx="9" fill="#e5f4ff"/><rect x="164" y="129" width="36" height="36" rx="9" fill="#e2f8ef"/><rect x="120" y="173" width="80" height="10" rx="5" fill="#dceafa"/>'+
+    '<rect x="20" y="56" width="75" height="47" rx="12" fill="#fff" stroke="#dbeaf6"/><path d="M33 84l13-9 13 4 18-15" stroke="#24a9b5" stroke-width="4" fill="none" stroke-linecap="round"/>'+
+    '<rect x="224" y="108" width="78" height="50" rx="12" fill="#fff" stroke="#dbeaf6"/><circle cx="240" cy="124" r="7" fill="#9de6cf"/><rect x="253" y="120" width="35" height="5" rx="2" fill="#a9c6da"/><rect x="236" y="140" width="52" height="6" rx="3" fill="var(--industry-accent,#1478e6)" opacity=".6"/>';
+  }else{
+    content=windowShell+
+    '<rect x="28" y="62" width="264" height="28" rx="8" fill="#f1f7fd"/><circle cx="43" cy="76" r="6" fill="var(--industry-accent,#1478e6)"/><rect x="57" y="71" width="78" height="9" rx="4" fill="#9bc5df"/><rect x="237" y="69" width="41" height="13" rx="6" fill="var(--industry-accent,#1478e6)"/>'+
+    '<rect x="28" y="102" width="105" height="81" rx="9" fill="#eaf5ff"/><rect x="41" y="118" width="54" height="7" rx="3" fill="#b0d2eb"/><rect x="41" y="134" width="68" height="12" rx="5" fill="var(--industry-accent,#1478e6)"/><rect x="41" y="158" width="75" height="5" rx="2" fill="#bdd6eb"/>'+
+    '<rect x="144" y="102" width="148" height="81" rx="9" fill="#f8fbff"/><rect x="157" y="116" width="42" height="5" rx="2" fill="#b6cee0"/><rect x="157" y="129" width="118" height="8" rx="3" fill="#e2edf6"/><rect x="157" y="144" width="90" height="8" rx="3" fill="#d0e8f9"/><rect x="157" y="159" width="108" height="8" rx="3" fill="#e2edf6"/>';
+  }
+  const label=['WEB APP','MOBILE APP','DESKTOP APP'][variant];
+  return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 215" role="img" aria-label="'+label+' interface illustration"><defs><linearGradient id="appBackdrop" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#edf8ff"/><stop offset="1" stop-color="#f7fbff"/></linearGradient></defs><rect width="320" height="215" rx="20" fill="url(#appBackdrop)"/>'+content+'<text x="299" y="205" font-family="Arial,sans-serif" font-size="8" fill="#8ca8bd" text-anchor="end">'+label+'</text></svg>';
 }
 const copyRoot=document.getElementById('industryCopy');
 let measuredCopyKey='';
 
 // Reserve the largest responsive text slots so changing industries never resizes the hero.
 function stabilizeIndustryCopy(){
-  const width=Math.round(copyRoot.getBoundingClientRect().width);
-  if(!width)return;
-  const key=document.documentElement.lang+':'+width;
-  if(key===measuredCopyKey)return;
-  const selectors=['.industry-pretitle','#industryHeadline','#industryDescription','.industry-toolkit'];
-  const live=selectors.map(selector=>copyRoot.querySelector(selector));
-  live.forEach(element=>element.style.removeProperty('min-height'));
-  const baseline=live.map(element=>parseFloat(getComputedStyle(element).minHeight)||0);
-  const tester=copyRoot.cloneNode(true);
-  tester.classList.remove('industry-content-enter');
-  const pretitle=tester.querySelector('.industry-pretitle');
-  const audienceNode=tester.querySelector('#industryAudience');
-  const heading=tester.querySelector('#industryHeadline');
-  const summary=tester.querySelector('#industryDescription');
-  const toolkit=tester.querySelector('.industry-toolkit');
-  const toolkitItems=tester.querySelector('#industryToolkit');
-  tester.querySelectorAll('[id]').forEach(element=>element.removeAttribute('id'));
-  [pretitle,heading,summary,toolkit].forEach(element=>element.style.minHeight='0px');
-  tester.setAttribute('aria-hidden','true');
-  Object.assign(tester.style,{position:'absolute',left:'-10000px',top:'0',width:width+'px',height:'auto',minHeight:'0',visibility:'hidden',pointerEvents:'none'});
-  copyRoot.parentElement.appendChild(tester);
-  const maxHeights=[...baseline];
-  const translate=window.vbtTranslate||((value)=>value);
-  industryOptions.forEach((item,i)=>{
-    audienceNode.textContent=translate(item.audience);
-    heading.replaceChildren(document.createTextNode(translate(item.lead)),document.createElement('br'),Object.assign(document.createElement('span'),{textContent:translate(item.highlight)}));
-    summary.textContent=translate(item.description);
-    toolkitItems.replaceChildren(...industryToolkits[i].map(feature=>Object.assign(document.createElement('span'),{textContent:'✦ '+translate(feature)})));
-    [pretitle,heading,summary,toolkit].forEach((element,j)=>{maxHeights[j]=Math.max(maxHeights[j],element.getBoundingClientRect().height)});
-  });
-  tester.remove();
-  live.forEach((element,i)=>{element.style.minHeight=Math.ceil(maxHeights[i]+1)+'px'});
-  measuredCopyKey=key;
+  // The full-width heading reserves its space in CSS; content updates stay in place.
+  measuredCopyKey=document.documentElement.lang;
 }
 
 // Keep old and new illustrations in the same grid cell for a soft crossfade.
@@ -129,6 +125,39 @@ function transitionIndustryArt(kind){
     outgoing.classList.remove('is-visible');
   }));
 }
+const industryAiExamples=[
+  ['Which students need attendance follow-up today?','I can flag missing attendance entries and prepare a clear follow-up list for staff.'],
+  ['What sold best this week?','I can summarize your top-selling products, stock levels and items needing a reorder.'],
+  ['Show outstanding invoices and priorities.','I can group overdue invoices and highlight the next actions for your team.'],
+  ['Summarize today’s fuel shifts.','I can compare shift totals, fuel sales and stock movement for review.'],
+  ['Which tenant payments are due next?','I can organize upcoming rent dates and create a follow-up checklist.'],
+  ['Help organize tomorrow’s appointments.','I can prepare the appointment schedule and highlight booking conflicts.'],
+  ['Which menu items should we restock?','I can compare orders with available ingredients and suggest a purchasing list.'],
+  ['Which warehouse items are running low?','I can identify low-stock items and prepare a replenishment summary.'],
+  ['Summarize my new property inquiries.','I can sort leads by property interest and prepare follow-up priorities.'],
+  ['What rooms are available this weekend?','I can summarize reservations, availability and upcoming check-ins.'],
+  ['Show pending production tasks.','I can organize outstanding jobs and identify material shortages.'],
+  ['Which clients are due for a follow-up?','I can review appointment history and prepare a client reminder list.']
+];
+let aiTypeTimer=null;
+function animateAiConversation(index){
+  const promptNode=document.getElementById('industryAiPrompt');
+  const replyNode=document.getElementById('industryAiResponse');
+  if(!promptNode||!replyNode)return;
+  clearInterval(aiTypeTimer);
+  const [prompt,reply]=industryAiExamples[index];
+  if(prefersLessMotion){promptNode.textContent=prompt;replyNode.textContent=reply;return}
+  promptNode.textContent='';replyNode.textContent='';
+  let position=0;
+  aiTypeTimer=setInterval(()=>{
+    position+=3;
+    if(position<=prompt.length){promptNode.textContent=prompt.slice(0,position);return}
+    promptNode.textContent=prompt;
+    const responseLength=Math.max(0,position-prompt.length);
+    replyNode.textContent=reply.slice(0,responseLength*2);
+    if(responseLength*2>=reply.length){replyNode.textContent=reply;clearInterval(aiTypeTimer)}
+  },28);
+}
 function selectIndustry(index,force=false){
   const normalized=(index+industryOptions.length)%industryOptions.length;
   if(normalized===currentIndustry&&artRoot.firstChild&&!force)return;
@@ -146,6 +175,7 @@ function selectIndustry(index,force=false){
     return chip;
   }));
   transitionIndustryArt(item.art);
+  animateAiConversation(currentIndustry);
   document.getElementById('industryIcon').textContent=item.icon;
   document.getElementById('industryArtTitle').textContent=translate(item.title);
   document.getElementById('industryArtSubtitle').textContent=translate(item.tags);
