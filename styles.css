@@ -684,3 +684,59 @@
   .industry-hero .art-illustration{height:236px}
   .industry-hero .industry-copy .hero-actions{grid-template-columns:1fr}
 }
+
+/* Three-zone industry hero — refined layout */
+.industry-hero .hero-intro.industry-stage-intro{width:100%;max-width:none;text-align:center;padding:0 0 8px;margin:0;position:relative;z-index:3}
+.industry-hero .industry-layout{align-items:start;padding-top:55px;gap:18px}
+.industry-hero .industry-copy{align-self:start}
+.industry-hero .hero-platform-heading h2{font-size:clamp(19px,1.63vw,26px);letter-spacing:-1.1px;line-height:1.28;white-space:nowrap}
+.industry-hero .hero-platform-heading h2 em{display:block}
+.industry-hero .industry-stage{height:730px;display:flex;flex-direction:column;align-items:center}
+.industry-hero .industry-stage-intro .industry-kicker{font-size:10px;letter-spacing:.7px;white-space:nowrap}
+.industry-hero .industry-stage-intro .industry-pretitle{margin:8px 0 2px;font-size:13px}
+.industry-hero .industry-stage-intro h1{font-size:clamp(18px,1.8vw,26px);letter-spacing:-.8px;line-height:1.32;min-height:0;margin:5px 0 7px;white-space:nowrap}
+.industry-hero .industry-stage-intro h1 br{display:none}
+.industry-hero .industry-stage-intro .industry-description{font-size:11px;line-height:1.55;max-width:460px;margin:0 auto;min-height:0}
+.industry-hero .industry-showcase-frame{top:158px;bottom:54px;inset-inline:0;padding:28px 14px 75px}
+.industry-hero .industry-showcase-frame .industry-art-panel{max-width:100%}
+.industry-hero .art-illustration{height:235px}
+.industry-hero .industry-showcase-frame .industry-dot-dock{bottom:68px}
+.industry-hero .industry-showcase-frame .frame-toolkit{position:absolute;bottom:13px;left:20px;right:20px;margin:0;text-align:center;z-index:5}
+.industry-hero .frame-toolkit .toolkit-label{font-size:8px;margin-bottom:4px;letter-spacing:.6px}
+.industry-hero .frame-toolkit .toolkit-items{justify-content:center;gap:5px;flex-wrap:nowrap}
+.industry-hero .frame-toolkit .toolkit-items span{padding:5px 7px;font-size:9px;white-space:nowrap;border-radius:7px}
+.industry-hero .industry-stage-footer{position:absolute;bottom:0;left:0;right:0;display:flex;justify-content:flex-end;align-items:center;gap:10px;z-index:7}
+.industry-hero .industry-stage-footer .industry-more{position:static;background:transparent;border:0;box-shadow:none;padding:0;color:#17649b;font-size:12px}
+.industry-hero .industry-build-link{font-size:12px;padding:10px 15px;min-height:38px;white-space:nowrap}
+@media(max-width:1200px) and (min-width:821px){
+ .industry-hero .hero-platform-heading h2{font-size:clamp(17px,1.7vw,22px)}
+ .industry-hero .industry-stage-intro h1{font-size:clamp(16px,1.9vw,22px)}
+ .industry-hero .industry-showcase-frame .frame-toolkit{left:8px;right:8px}
+ .industry-hero .frame-toolkit .toolkit-items span{font-size:8px;padding:5px}
+}
+@media(max-width:820px){
+ .industry-hero .industry-layout{padding-top:35px;gap:19px}
+ .industry-hero .industry-copy{align-self:center}
+ .industry-hero .hero-platform-heading h2{font-size:clamp(21px,5vw,32px);white-space:nowrap}
+ .industry-hero .industry-stage{height:720px;max-width:650px;margin:0 auto}
+ .industry-hero .industry-stage-intro h1{font-size:clamp(22px,4.5vw,32px);white-space:normal;max-width:510px;margin-inline:auto}
+ .industry-hero .industry-stage-intro h1 br{display:block}
+ .industry-hero .industry-showcase-frame{top:166px;bottom:56px;inset-inline:12px;padding:25px 13px 77px}
+ .industry-hero .art-illustration{height:224px}
+}
+@media(max-width:550px){
+ .industry-hero .industry-layout{gap:22px}
+ .industry-hero .hero-platform-heading h2{font-size:clamp(18px,5.3vw,26px);letter-spacing:-.8px}
+ .industry-hero .industry-stage{height:656px;width:100%}
+ .industry-hero .industry-stage-intro .industry-kicker{font-size:8px;letter-spacing:0}
+ .industry-hero .industry-stage-intro .industry-pretitle{font-size:12px}
+ .industry-hero .industry-stage-intro h1{font-size:clamp(21px,6vw,27px);line-height:1.28;margin:5px auto}
+ .industry-hero .industry-stage-intro .industry-description{font-size:10px;line-height:1.45}
+ .industry-hero .industry-showcase-frame{top:159px;bottom:55px;inset-inline:2px;padding:23px 8px 84px}
+ .industry-hero .art-illustration{height:185px}
+ .industry-hero .industry-showcase-frame .industry-dot-dock{bottom:75px}
+ .industry-hero .frame-toolkit .toolkit-label{font-size:7px}
+ .industry-hero .frame-toolkit .toolkit-items span{font-size:7.5px;padding:4px}
+ .industry-hero .industry-stage-footer .industry-more{font-size:10px}
+ .industry-hero .industry-build-link{font-size:10px;padding:9px 11px}
+}

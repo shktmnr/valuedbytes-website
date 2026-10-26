@@ -8,7 +8,7 @@
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Nastaliq+Urdu:wght@400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=three-col-ai-20261026">
+  <link rel="stylesheet" href="styles.css?v=industry-three-zone-20261026">
 <script>/* Warm up the Urdu fallback while the larger Jameel fonts arrive. */
 (function(){var warm=function(){if(document.fonts&&document.fonts.load)document.fonts.load('400 18px "Noto Nastaliq Urdu"','اردو').catch(function(){});};if('requestIdleCallback' in window)requestIdleCallback(warm,{timeout:1200});else setTimeout(warm,200);})();</script></head>
 <body>
@@ -21,12 +21,6 @@
   <main>
     <section class="hero industry-hero" id="industries">
       <div class="hero-glow glow-one"></div><div class="hero-glow glow-two"></div>
-      <div class="container hero-intro" id="heroIntro">
-        <span class="industry-kicker"><span class="pulse"></span> TECHNOLOGY THAT WORKS FOR YOUR WORLD</span>
-        <p class="industry-pretitle"><span class="industry-for" id="industryForPrefix">For </span><span id="industryAudience">schools &amp; colleges</span></p>
-        <h1 id="industryHeadline">Less paperwork.<br><span>More learning.</span></h1>
-        <p class="industry-description" id="industryDescription">Bring admissions, fees, attendance and reporting into one simple, organized experience. Spend less time on routine work and more time on what matters.</p>
-      </div>
       <div class="container industry-layout">
         <div class="industry-copy" id="industryCopy">
           <div class="hero-platform-heading"><span>ONE TEAM. EVERY PLATFORM.</span><h2>Powerful Technology.<br><em>Beautifully Simple.</em></h2><p>Thoughtfully designed tools for every screen, every team and every workflow.</p></div>
@@ -36,10 +30,16 @@
             <article class="hero-platform-feature"><span class="platform-feature-icon">▯</span><div><strong>Mobile applications</strong><small>Android & iOS · intuitive UX · on-the-go tasks</small></div><span class="platform-feature-arrow">↗</span></article>
             <article class="hero-platform-feature"><span class="platform-feature-icon">▣</span><div><strong>Desktop software</strong><small>Reliable operations · focused tools · offline options</small></div><span class="platform-feature-arrow">↗</span></article>
           </div>
-          <div class="industry-toolkit" aria-label="Examples of tailored features"><span class="toolkit-label">YOUR SMART WORKSPACE COULD INCLUDE</span><div class="toolkit-items" id="industryToolkit"><span>✦ Admissions</span><span>✦ Fee management</span><span>✦ Attendance</span></div></div>
-          <div class="hero-actions"><a class="button button-primary button-large" href="#services">Explore Our Services <span aria-hidden="true">↗</span></a><a class="button industry-secondary button-large" href="#contact">Let's Build Yours <span aria-hidden="true">→</span></a></div>
+
         </div>
         <div class="industry-stage" id="industryStage" aria-label="Animated industry showcase">
+      <div class="hero-intro industry-stage-intro" id="heroIntro">
+        <span class="industry-kicker"><span class="pulse"></span> TECHNOLOGY THAT WORKS FOR YOUR INDUSTRY</span>
+        <p class="industry-pretitle"><span class="industry-for" id="industryForPrefix">For </span><span id="industryAudience">schools &amp; colleges</span></p>
+        <h1 id="industryHeadline">Less paperwork.<br><span>More learning.</span></h1>
+        <p class="industry-description" id="industryDescription">Bring admissions, fees, attendance and reporting into one simple, organized experience. Spend less time on routine work and more time on what matters.</p>
+      </div>
+
           <div class="industry-showcase-frame" id="industryShowcaseFrame">
             <svg class="industry-perimeter-path" id="industryPerimeterSvg" aria-hidden="true"><path id="industryPerimeterPath"></path></svg>
             <button type="button" class="industry-border-traveller" id="industryBorderTraveller" aria-label="See next industry" title="Click for the next industry"><span></span></button>
@@ -50,8 +50,10 @@
               <div class="art-caption"><span class="art-caption-icon" id="industryIcon">✦</span><div><strong id="industryArtTitle">Smart education, made simple.</strong><small id="industryArtSubtitle">Admissions · Attendance · Fees</small></div></div>
             </div>
             <div class="industry-dot-dock" id="industryDotDock" aria-label="Choose industry"></div>
+          <div class="industry-toolkit frame-toolkit" aria-label="Examples of tailored features"><span class="toolkit-label">YOUR SMART WORKSPACE COULD INCLUDE</span><div class="toolkit-items" id="industryToolkit"><span>✦ Admissions</span><span>✦ Fee management</span><span>✦ Attendance</span></div></div>
+
           </div>
-          <div class="industry-more" id="industryMore">And much more…</div>
+          <div class="industry-stage-footer"><div class="industry-more" id="industryMore">And much more…</div><a class="button button-primary industry-build-link" href="#contact">Let’s Build Yours <span aria-hidden="true">↗</span></a></div>
         </div>
         <aside class="hero-ai-column" aria-label="Local AI example on a mobile screen">
           <div class="hero-ai-phone">
