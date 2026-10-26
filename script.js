@@ -47,7 +47,7 @@ const industryShapes={
   factory:'<path d="M59 174V96l64 32V96l64 32V77h75v97H59zM202 77V42h40v35M74 174h178"/><rect x="89" y="144" width="24" height="19" rx="3"/><rect x="148" y="144" width="24" height="19" rx="3"/><rect x="209" y="144" width="24" height="19" rx="3"/>',
   salon:'<rect x="82" y="39" width="156" height="139" rx="16"/><rect x="105" y="58" width="110" height="74" rx="12"/><path d="M135 175v-26h50v26M112 177h96M121 90c15-32 63-32 78 0M130 109c21 18 39 18 60 0"/><circle cx="160" cy="91" r="17"/>'
 };
-const badgeRoot=document.getElementById('industryBadges');
+const badgeRoot=document.getElementById('industryDotDock');
 const headline=document.getElementById('industryHeadline');
 const audience=document.getElementById('industryAudience');
 const description=document.getElementById('industryDescription');
@@ -66,7 +66,7 @@ let stageHasFocus=false;
 let recentlySelectedUntil=0;
 function drawIndustryArt(kind){
   const shape=industryShapes[kind]||industryShapes.business;
-  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 215" role="img" aria-label="Line illustration"><circle cx="160" cy="105" r="95" fill="#d9f1fc" opacity=".72"/><circle cx="160" cy="105" r="70" fill="#effbff"/><g stroke="#207eb0" stroke-width="6" fill="#fff" stroke-linejoin="round" stroke-linecap="round">${shape}</g><g fill="#18b7bb" opacity=".7" class="art-detail"><circle cx="54" cy="52" r="7"/><circle cx="265" cy="44" r="5"/><path d="M252 148l8-13 8 13z"/></g><g fill="none" stroke="#7bc8e9" stroke-width="2" opacity=".9"><path d="M36 157h24M260 71h22M253 188h22"/></g></svg>`;
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 215" role="img" aria-label="Line illustration"><circle cx="160" cy="105" r="95" fill="#d9f1fc" opacity=".72"/><circle cx="160" cy="105" r="70" fill="#effbff"/><g stroke="var(--industry-accent, #207eb0)" stroke-width="6" fill="#fff" stroke-linejoin="round" stroke-linecap="round">${shape}</g><g fill="var(--industry-accent, #18b7bb)" opacity=".7" class="art-detail"><circle cx="54" cy="52" r="7"/><circle cx="265" cy="44" r="5"/><path d="M252 148l8-13 8 13z"/></g><g fill="none" stroke="#7bc8e9" stroke-width="2" opacity=".9"><path d="M36 157h24M260 71h22M253 188h22"/></g></svg>`;
 }
 const copyRoot=document.getElementById('industryCopy');
 let measuredCopyKey='';
@@ -149,7 +149,12 @@ function selectIndustry(index,force=false){
   document.getElementById('industryIcon').textContent=item.icon;
   document.getElementById('industryArtTitle').textContent=translate(item.title);
   document.getElementById('industryArtSubtitle').textContent=translate(item.tags);
-  badgeRoot.querySelectorAll('button').forEach((button,i)=>{button.textContent=translate(industryOptions[i].name);button.classList.toggle('active',i===currentIndustry);button.setAttribute('aria-pressed',String(i===currentIndustry))});
+  badgeRoot.querySelectorAll('button').forEach((button,i)=>{button.classList.toggle('active',i===currentIndustry);button.setAttribute('aria-pressed',String(i===currentIndustry));button.setAttribute('aria-label',translate(industryOptions[i].name))});
+  document.getElementById('industryActiveName').textContent=translate(item.name);
+  const palette=industryPalettes[currentIndustry];
+  stage.style.setProperty('--industry-accent',palette[0]);
+  stage.style.setProperty('--industry-soft',palette[1]);
+  document.getElementById('industryBorderTraveller').setAttribute('aria-label',translate(item.name)+' — '+translate(item.title));
   stabilizeIndustryCopy();
   if(wasRendered&&!prefersLessMotion){
     const caption=artPanel.querySelector('.art-caption');
@@ -160,59 +165,84 @@ function selectIndustry(index,force=false){
     caption.classList.add('industry-content-enter');
   }
 }
-function angleDifference(from,to){
-  const count=industryOptions.length;
-  return ((to-from+count/2)%count+count)%count-count/2;
+// One illuminated dot makes a full trip around the rounded rectangle.
+// At the bottom docking point the following industry's dot takes over.
+const industryPalettes=[
+  ['#1478e6','#d9eeff'],['#08a48d','#d8f8ef'],['#a775e9','#eee2ff'],
+  ['#f18b44','#fff0df'],['#db5f92','#ffe3ef'],['#1b95b9','#dbf4ff'],
+  ['#5877df','#e6eaff'],['#b5794e','#fff0e1'],['#248d90','#d9f6f2'],
+  ['#c65fa7','#fbe2f2'],['#da8a2e','#fff3d8'],['#4886d8','#e1eeff']
+];
+const stage=document.getElementById('industryStage');
+const frame=document.getElementById('industryShowcaseFrame');
+const traveller=document.getElementById('industryBorderTraveller');
+const orbitSvg=document.getElementById('industryPerimeterSvg');
+const orbitPath=document.getElementById('industryPerimeterPath');
+let lapProgress=0;
+let lastFrameTime=0;
+const lapSeconds=6.2;
+let measuredFrameWidth=0,measuredFrameHeight=0,perimeterLength=0;
+function measureFramePath(){
+  const width=frame.clientWidth, height=frame.clientHeight;
+  if(width===measuredFrameWidth&&height===measuredFrameHeight)return;
+  measuredFrameWidth=width;measuredFrameHeight=height;
+  if(!width||!height)return;
+  const inset=3.5,w=width-inset*2,h=height-inset*2;
+  const radius=Math.min(32,w/5,h/5);
+  orbitSvg.setAttribute('viewBox','0 0 '+width+' '+height);
+  orbitPath.setAttribute('d',
+    'M '+(width/2)+' '+(inset+h)+
+    ' H '+(inset+radius)+
+    ' A '+radius+' '+radius+' 0 0 1 '+inset+' '+(inset+h-radius)+
+    ' V '+(inset+radius)+
+    ' A '+radius+' '+radius+' 0 0 1 '+(inset+radius)+' '+inset+
+    ' H '+(inset+w-radius)+
+    ' A '+radius+' '+radius+' 0 0 1 '+(inset+w)+' '+(inset+radius)+
+    ' V '+(inset+h-radius)+
+    ' A '+radius+' '+radius+' 0 0 1 '+(inset+w-radius)+' '+(inset+h)+
+    ' H '+(width/2));
+  perimeterLength=orbitPath.getTotalLength();
 }
 function navigateToIndustry(index){
-  const normalized=(index+industryOptions.length)%industryOptions.length;
-  orbitTarget=orbitPhase+angleDifference(orbitPhase,normalized);
-  recentlySelectedUntil=performance.now()+1300;
-  selectIndustry(normalized);
+  lapProgress=0;
+  selectIndustry(index);
+  renderBorderTraveller();
 }
-function renderOrbit(){
-  const buttons=badgeRoot.querySelectorAll('button');
-  buttons.forEach((button,i)=>{
-    const angle=Math.PI/2+(i-orbitPhase)*orbitStep;
-    const x=50+49*Math.cos(angle);
-    const y=50+49*Math.sin(angle);
-    button.style.left=x+'%';
-    button.style.top=y+'%';
-    button.style.zIndex=String(Math.round(10+10*Math.sin(angle)));
-    button.style.opacity=String(.68+.32*(Math.sin(angle)+1)/2);
-  });
+function renderBorderTraveller(){
+  measureFramePath();
+  if(!perimeterLength)return;
+  const point=orbitPath.getPointAtLength(lapProgress*perimeterLength);
+  traveller.style.left=point.x+'px';
+  traveller.style.top=point.y+'px';
 }
-function orbitFrame(timestamp){
-  const delta=orbitLastFrame?Math.min((timestamp-orbitLastFrame)/1000,.06):0;
-  orbitLastFrame=timestamp;
-  if(orbitTarget!==null){
-    const remaining=orbitTarget-orbitPhase;
-    const step=Math.sign(remaining)*Math.min(Math.abs(remaining),delta*3.2);
-    orbitPhase+=step;
-    if(Math.abs(orbitTarget-orbitPhase)<.002){orbitPhase=orbitTarget;orbitTarget=null}
-  }else if(!isPaused&&!document.hidden&&!pointerOverStage&&!stageHasFocus&&timestamp>recentlySelectedUntil){
-    orbitPhase+=delta*orbitSpeed;
+function animateIndustryBorder(timestamp){
+  const delta=lastFrameTime?Math.min((timestamp-lastFrameTime)/1000,.06):0;
+  lastFrameTime=timestamp;
+  if(!isPaused&&!document.hidden){
+    lapProgress+=delta/lapSeconds;
+    if(lapProgress>=1){
+      lapProgress%=1;
+      selectIndustry((currentIndustry+1)%industryOptions.length);
+    }
   }
-  // The badge closest to the six-o'clock position is always the active one.
-  if(orbitTarget===null&&timestamp>recentlySelectedUntil){
-    const nearest=((Math.round(orbitPhase)%industryOptions.length)+industryOptions.length)%industryOptions.length;
-    selectIndustry(nearest);
-  }
-  renderOrbit();
-  requestAnimationFrame(orbitFrame);
+  renderBorderTraveller();
+  requestAnimationFrame(animateIndustryBorder);
 }
 industryOptions.forEach((industry,i)=>{
-  const badge=document.createElement('button');
-  badge.type='button';badge.className='industry-badge';badge.textContent=industry.name;
-  badge.addEventListener('click',()=>navigateToIndustry(i));
-  badgeRoot.appendChild(badge);
+  const dot=document.createElement('button');
+  dot.type='button';
+  dot.className='industry-dock-dot';
+  dot.title=industry.name;
+  dot.setAttribute('aria-label',industry.name);
+  dot.addEventListener('click',()=>navigateToIndustry(i));
+  badgeRoot.appendChild(dot);
 });
-const stage=document.getElementById('industryStage');
+traveller.addEventListener('click',()=>navigateToIndustry((currentIndustry+1)%industryOptions.length));
 stage.addEventListener('mouseenter',()=>{pointerOverStage=true});
 stage.addEventListener('mouseleave',()=>{pointerOverStage=false});
 stage.addEventListener('focusin',()=>{stageHasFocus=true});
 stage.addEventListener('focusout',event=>{if(!stage.contains(event.relatedTarget))stageHasFocus=false});
 selectIndustry(0);
-window.addEventListener('resize',()=>{measuredCopyKey='';stabilizeIndustryCopy()},{passive:true});
+window.addEventListener('resize',()=>{measuredCopyKey='';measuredFrameWidth=0;stabilizeIndustryCopy();renderBorderTraveller()},{passive:true});
 if(document.fonts)document.fonts.ready.then(()=>{measuredCopyKey='';stabilizeIndustryCopy()});
-requestAnimationFrame(orbitFrame);
+requestAnimationFrame(animateIndustryBorder);
