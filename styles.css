@@ -533,3 +533,31 @@
 
 /* Anchor the visual alongside the first platform feature, not halfway down the long AI column. */
 @media(min-width:821px){.industry-hero .industry-stage{align-self:start;margin-top:0}}
+
+/* Color-reactive hero canvas: each industry gently shifts the page atmosphere. */
+@property --hero-tint{
+  syntax:"<color>";
+  inherits:true;
+  initial-value:#d9eeff;
+}
+@property --hero-accent{
+  syntax:"<color>";
+  inherits:true;
+  initial-value:#1478e6;
+}
+.hero.industry-hero{
+  --hero-tint:#d9eeff;
+  --hero-accent:#1478e6;
+  background:
+    radial-gradient(ellipse at 79% 40%,color-mix(in srgb,var(--hero-tint) 64%,white),transparent 65%),
+    radial-gradient(ellipse at 8% 82%,color-mix(in srgb,var(--hero-tint) 22%,white),transparent 64%),
+    linear-gradient(122deg,#f9fbff 0%,color-mix(in srgb,var(--hero-tint) 47%,white) 58%,#f7fcff 100%);
+  transition:--hero-tint 1.25s ease-in-out,--hero-accent 1.25s ease-in-out;
+}
+.hero.industry-hero::before{
+  background:radial-gradient(ellipse at 68% 50%,color-mix(in srgb,var(--hero-accent) 8%,transparent),transparent 61%);
+  pointer-events:none;
+}
+@media(prefers-reduced-motion:reduce){
+  .hero.industry-hero{transition:none}
+}

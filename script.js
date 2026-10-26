@@ -184,6 +184,9 @@ function selectIndustry(index,force=false){
   const palette=industryPalettes[currentIndustry];
   stage.style.setProperty('--industry-accent',palette[0]);
   stage.style.setProperty('--industry-soft',palette[1]);
+  const heroCanvas=document.getElementById('industries');
+  heroCanvas.style.setProperty('--hero-tint',palette[1]);
+  heroCanvas.style.setProperty('--hero-accent',palette[0]);
   document.getElementById('industryBorderTraveller').setAttribute('aria-label',translate(item.name)+' — '+translate(item.title));
   stabilizeIndustryCopy();
   if(wasRendered&&!prefersLessMotion){
