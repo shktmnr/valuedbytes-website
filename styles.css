@@ -530,3 +530,6 @@
   .industry-hero .industry-showcase-frame .art-caption{padding:12px 10px}
 }
 @media(prefers-reduced-motion:reduce){.ai-live-dot{animation:none}}
+
+/* Anchor the visual alongside the first platform feature, not halfway down the long AI column. */
+@media(min-width:821px){.industry-hero .industry-stage{align-self:start;margin-top:0}}
