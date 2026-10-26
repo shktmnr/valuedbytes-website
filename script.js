@@ -139,25 +139,49 @@ const industryAiExamples=[
   ['Show pending production tasks.','I can organize outstanding jobs and identify material shortages.'],
   ['Which clients are due for a follow-up?','I can review appointment history and prepare a client reminder list.']
 ];
+const industryAiRomanUrdu=[
+  ['Aaj kin students ki attendance follow-up chahiye?','Main missing attendance entries check karke staff ke liye follow-up list bana sakta hoon.'],
+  ['Is haftay sab se zyada kya sell hua?','Main top-selling products, stock levels aur reorder items ki summary bana sakta hoon.'],
+  ['Pending invoices aur priorities dikha dein.','Main overdue invoices group karke team ke next actions bata sakta hoon.'],
+  ['Aaj ki fuel shifts ki report dein.','Main shift totals, fuel sales aur stock movement compare kar sakta hoon.'],
+  ['Kin tenants ka rent due hai?','Main upcoming rent dates aur follow-up checklist organize kar sakta hoon.'],
+  ['Kal ki appointments organize kar dein.','Main schedule bana kar booking conflicts highlight kar sakta hoon.'],
+  ['Kin menu items ke liye stock chahiye?','Main orders aur ingredients compare karke purchasing list suggest kar sakta hoon.'],
+  ['Warehouse mein kaun si items kam hain?','Main low-stock items identify karke replenishment summary bana sakta hoon.'],
+  ['Nayi property inquiries ki summary dein.','Main leads ko property interest ke hisaab se sort kar sakta hoon.'],
+  ['Is weekend kaun se rooms available hain?','Main reservations, room availability aur check-ins summarize kar sakta hoon.'],
+  ['Pending production tasks dikha dein.','Main outstanding jobs aur materials ki kami highlight kar sakta hoon.'],
+  ['Kin clients ko follow-up chahiye?','Main appointment history dekh kar reminder list bana sakta hoon.']
+];
 let aiTypeTimer=null;
+let aiLanguage='en';
+let aiLanguagePinned=false;
 function animateAiConversation(index){
   const promptNode=document.getElementById('industryAiPrompt');
   const replyNode=document.getElementById('industryAiResponse');
   if(!promptNode||!replyNode)return;
   clearInterval(aiTypeTimer);
-  const [prompt,reply]=industryAiExamples[index];
+  if(!aiLanguagePinned)aiLanguage=index%2===0?'en':'roman';
+  const [prompt,reply]=(aiLanguage==='roman'?industryAiRomanUrdu:industryAiExamples)[index];
+  ['aiEnglish','aiRomanUrdu'].forEach((id,i)=>{
+    const node=document.getElementById(id);
+    const active=aiLanguage===(i===0?'en':'roman');
+    if(node){node.classList.toggle('active',active);node.setAttribute('aria-pressed',String(active))}
+  });
   if(prefersLessMotion){promptNode.textContent=prompt;replyNode.textContent=reply;return}
   promptNode.textContent='';replyNode.textContent='';
   let position=0;
   aiTypeTimer=setInterval(()=>{
-    position+=3;
+    position+=2;
     if(position<=prompt.length){promptNode.textContent=prompt.slice(0,position);return}
     promptNode.textContent=prompt;
     const responseLength=Math.max(0,position-prompt.length);
-    replyNode.textContent=reply.slice(0,responseLength*2);
-    if(responseLength*2>=reply.length){replyNode.textContent=reply;clearInterval(aiTypeTimer)}
-  },28);
+    replyNode.textContent=reply.slice(0,Math.floor(responseLength*1.25));
+    if(responseLength*1.25>=reply.length){replyNode.textContent=reply;clearInterval(aiTypeTimer)}
+  },52);
 }
+document.getElementById('aiEnglish').addEventListener('click',()=>{aiLanguage='en';aiLanguagePinned=true;animateAiConversation(currentIndustry)});
+document.getElementById('aiRomanUrdu').addEventListener('click',()=>{aiLanguage='roman';aiLanguagePinned=true;animateAiConversation(currentIndustry)});
 function selectIndustry(index,force=false){
   const normalized=(index+industryOptions.length)%industryOptions.length;
   if(normalized===currentIndustry&&artRoot.firstChild&&!force)return;
