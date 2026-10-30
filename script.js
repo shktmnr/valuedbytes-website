@@ -180,8 +180,8 @@ function animateAiConversation(index){
     if(responseLength*1.25>=reply.length){replyNode.textContent=reply;clearInterval(aiTypeTimer)}
   },52);
 }
-document.getElementById('aiEnglish').addEventListener('click',()=>{aiLanguage='en';aiLanguagePinned=true;animateAiConversation(currentIndustry)});
-document.getElementById('aiRomanUrdu').addEventListener('click',()=>{aiLanguage='roman';aiLanguagePinned=true;animateAiConversation(currentIndustry)});
+document.getElementById('aiEnglish')?.addEventListener('click',()=>{aiLanguage='en';aiLanguagePinned=true;animateAiConversation(currentIndustry)});
+document.getElementById('aiRomanUrdu')?.addEventListener('click',()=>{aiLanguage='roman';aiLanguagePinned=true;animateAiConversation(currentIndustry)});
 function selectIndustry(index,force=false){
   const normalized=(index+industryOptions.length)%industryOptions.length;
   if(normalized===currentIndustry&&artRoot.firstChild&&!force)return;
