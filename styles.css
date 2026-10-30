@@ -815,3 +815,60 @@
  .industry-hero .industry-stage-audience{bottom:42px;font-size:14px}
  .industry-hero .industry-stage-footer{bottom:0}
 }
+
+/* Two-column editorial hero, with the active headline inside the showcase. */
+.industry-hero{background:linear-gradient(125deg,#f5f8ff 0%,#fff 58%,#f8fbff 100%)}
+.industry-hero .industry-layout{grid-template-columns:minmax(0,.88fr) minmax(0,1.12fr);gap:clamp(30px,4vw,70px);align-items:center;padding-top:70px;padding-bottom:72px}
+.industry-hero .industry-copy{min-height:0;padding:0;align-self:center}
+.industry-hero .hero-platform-heading>span{font-size:11px;letter-spacing:2px;color:#2163be}
+.industry-hero .hero-platform-heading h2{font-size:clamp(37px,3.6vw,57px);line-height:1.14;letter-spacing:-2.4px;margin-bottom:22px}
+.industry-hero .hero-platform-heading p{font-size:15px;line-height:1.8;max-width:440px;margin-bottom:24px;color:#647b94}
+.industry-hero .hero-platform-list{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.industry-hero .hero-platform-feature{min-height:96px;padding:17px 14px;border-radius:17px;box-shadow:0 10px 30px #205b9210}
+.industry-hero .hero-platform-feature small{line-height:1.5}
+.industry-hero .hero-platform-feature .platform-feature-arrow{display:none}
+.industry-hero .industry-left-summary{font-size:13px;line-height:1.75;margin:22px 0 20px}
+.industry-hero .hero-left-actions{margin-top:0!important}
+.industry-hero .hero-left-actions .industry-build-link{padding:15px 22px;font-size:14px}
+.industry-hero .industry-stage{height:650px;min-height:0}
+.industry-hero .industry-stage-intro{height:30px;min-height:30px}
+.industry-hero .industry-showcase-frame{inset:35px 0 65px;top:35px;bottom:65px;border-radius:28px;padding:81px 28px 79px;justify-content:flex-start;background:radial-gradient(ellipse at 50% 33%,var(--industry-soft),#fff 71%) padding-box,linear-gradient(135deg,#b4d2ef,#fff 55%,#c8dcef) border-box;box-shadow:0 25px 80px #174d8820,0 2px 9px #174d880a}
+.industry-hero .industry-headline-row{position:relative;z-index:4;text-align:center;padding:0 10px 15px;width:100%}
+.industry-hero .industry-headline-row h1{font-size:clamp(26px,3vw,42px);line-height:1.17;letter-spacing:-1.8px;white-space:normal;max-width:500px;margin:0 auto;color:#153858}
+.industry-hero .industry-headline-row h1 br{display:block}
+.industry-hero .industry-headline-row h1 span::before{content:none}
+.industry-hero .industry-frame-heading{top:20px}
+.industry-hero .industry-showcase-frame .industry-art-panel{width:min(440px,100%);border-radius:18px;box-shadow:0 16px 35px #155a9918}
+.industry-hero .art-illustration{height:175px}
+.industry-hero .industry-showcase-frame .frame-toolkit{bottom:19px;left:18px;right:18px}
+.industry-hero .industry-showcase-frame .industry-dot-dock{bottom:81px}
+.industry-hero .industry-stage-audience{bottom:35px}
+.industry-hero .industry-stage-footer{bottom:5px}
+@media(max-width:1000px){
+ .industry-hero .industry-layout{gap:24px}
+ .industry-hero .hero-platform-list{grid-template-columns:1fr}
+ .industry-hero .hero-platform-feature{min-height:70px}
+ .industry-hero .industry-stage{height:640px}
+}
+@media(max-width:820px){
+ .industry-hero .industry-layout{grid-template-columns:1fr;padding-top:48px;padding-bottom:45px;gap:35px}
+ .industry-hero .industry-copy{max-width:650px;margin:auto;width:100%}
+ .industry-hero .hero-platform-list{grid-template-columns:1fr 1fr}
+ .industry-hero .industry-stage{height:630px;width:min(100%,650px);margin:auto}
+ .industry-hero .industry-showcase-frame{top:35px;bottom:65px}
+ .industry-hero .industry-headline-row h1{font-size:clamp(27px,5vw,40px)}
+}
+@media(max-width:550px){
+ .industry-hero .industry-layout{padding-top:35px;gap:24px}
+ .industry-hero .hero-platform-heading h2{font-size:clamp(31px,8vw,42px)}
+ .industry-hero .hero-platform-list{grid-template-columns:1fr 1fr;gap:7px}
+ .industry-hero .hero-platform-feature{padding:12px 9px;min-height:105px}
+ .industry-hero .hero-platform-feature strong{font-size:11px}
+ .industry-hero .hero-platform-feature small{font-size:9px}
+ .industry-hero .industry-stage{height:585px}
+ .industry-hero .industry-showcase-frame{top:30px;bottom:60px;padding:69px 10px 83px}
+ .industry-hero .industry-headline-row h1{font-size:clamp(24px,6.7vw,32px);letter-spacing:-1px}
+ .industry-hero .art-illustration{height:162px}
+ .industry-hero .industry-showcase-frame .frame-toolkit{left:8px;right:8px}
+ .industry-hero .industry-stage-audience{bottom:31px}
+}
