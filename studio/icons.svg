@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+ <symbol id="brand" viewBox="0 0 44 45"><g fill="currentColor"><path d="M2 10.5h9.2l7.2 19.2 13-26h10.5L22.2 41h-8.1z"/><path opacity=".82" d="M1.7 2.1H7v5.4H1.7zM9.1 5.1h5v5.1h-5zM11.7 12.3h4.2v4.2h-4.2z"/></g></symbol>
+ <symbol id="north" viewBox="0 0 24 24"><path d="M6 18 18 6M6.5 6H18v11.5" /></symbol>
+ <symbol id="right" viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6"/></symbol>
+ <symbol id="left" viewBox="0 0 24 24"><path d="M20 12H5m6-6-6 6 6 6"/></symbol>
+ <symbol id="down" viewBox="0 0 24 24"><path d="M12 4v15m-6-6 6 6 6-6"/></symbol>
+ <symbol id="globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="3.8" ry="9"/><path d="M3 12h18"/></symbol>
+ <symbol id="browser" viewBox="0 0 24 24"><rect x="2.5" y="4" width="19" height="16" rx="2.2"/><path d="M3 9h18M6 6.6h.2m2.6 0H9"/></symbol>
+ <symbol id="desktop" viewBox="0 0 24 24"><rect x="2.5" y="3.5" width="19" height="13.3" rx="1.7"/><path d="M12 17v3.5M8 20.5h8"/></symbol>
+ <symbol id="code" viewBox="0 0 24 24"><path d="m7 6-5 6 5 6m10-12 5 6-5 6m-3.5-15-3 18"/></symbol>
+ <symbol id="layers" viewBox="0 0 24 24"><path d="m12 2 9.5 5L12 12 2.5 7 12 2zM3 12l9 5 9-5m-18 5 9 5 9-5"/></symbol>
+ <symbol id="phone" viewBox="0 0 24 24"><rect x="6.2" y="2" width="11.6" height="20" rx="2.6"/><path d="M10 5h4m-2.8 14h1.6"/></symbol>
+ <symbol id="whatsapp" viewBox="0 0 24 24"><path d="M20.6 11.9a8.7 8.7 0 0 1-12.9 7.6l-4.8 1.3 1.3-4.7A8.7 8.7 0 1 1 20.6 11.9Z"/><path d="M8.6 7.4c.3-.2.6-.1.8.2l1 1.8c.2.3.1.6-.3 1l-.5.5c.7 1.5 1.9 2.7 3.6 3.3l.8-1c.2-.3.5-.3.8-.2l1.8.9c.3.1.4.3.3.7-.2 1.2-1.1 1.9-2.1 1.9-2.6-.1-6.5-3-7.5-6.1-.4-1.3.1-2.5 1.3-3Z" stroke-width="1.4"/></symbol>
+ <symbol id="school" viewBox="0 0 24 24"><path d="m2.5 9 9.5-5 9.5 5L12 14 2.5 9Z"/><path d="M6 11.1v4.7c3.8 3.2 8.2 3.2 12 0v-4.7M21 9v6"/></symbol>
+ <symbol id="college" viewBox="0 0 24 24"><path d="M2 9.5 12 4l10 5.5M4 10h16M6 11v7m4-7v7m4-7v7m4-7v7M3 20h18"/></symbol>
+ <symbol id="mall" viewBox="0 0 24 24"><path d="M4 9 6 4h12l2 5M4 9h16v2c-.8 2-3.2 2-4 0-.8 2-3.2 2-4 0-.8 2-3.2 2-4 0-.8 2-3.2 2-4 0V9Zm1.5 4v7h13v-7M9 20v-5h4v5"/></symbol>
+ <symbol id="pharmacy" viewBox="0 0 24 24"><path d="m9.5 4 .1 5.5H4v5h5.5V20h5v-5.5H20v-5h-5.5V4h-5Z"/></symbol>
+ <symbol id="hospital" viewBox="0 0 24 24"><path d="M3.5 20V9.3H7M7.2 20V4h9.6v16M17 9h3.5v11m-18 0h19m-11-11h3m-1.5-1.5v3m-2 9v-4.5h4V20"/></symbol>
+ <symbol id="business" viewBox="0 0 24 24"><rect x="2.5" y="7" width="19" height="13.5" rx="2"/><path d="M8 7V5.5a1.5 1.5 0 0 1 1.5-1.5h5A1.5 1.5 0 0 1 16 5.5V7M3 12c5 3 13 3 18 0M12 12.5v2.8"/></symbol>
+ <symbol id="pause" viewBox="0 0 24 24"><path d="M8.5 6v12m7-12v12" stroke-width="2.7"/></symbol>
+ <symbol id="play" viewBox="0 0 24 24"><path d="m8 5 10 7-10 7V5Z"/></symbol>
+ <symbol id="grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></symbol>
+ <symbol id="menu" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></symbol>
+ <symbol id="close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+ <symbol id="spark" viewBox="0 0 24 24"><path d="M12 2.8c1.3 5.6 3.7 8 9.2 9.2-5.5 1.3-8 3.7-9.2 9.2C10.7 15.7 8.3 13.3 2.8 12c5.5-1.2 8-3.6 9.2-9.2Z"/></symbol>
+ <symbol id="sliders" viewBox="0 0 24 24"><path d="M4 7h8m4 0h4M4 17h3m4 0h9"/><circle cx="14" cy="7" r="2"/><circle cx="9" cy="17" r="2"/></symbol>
+ <symbol id="pin" viewBox="0 0 24 24"><path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 1 1 14 0Z"/><circle cx="12" cy="10" r="2.2"/></symbol>
+ <symbol id="send" viewBox="0 0 24 24"><path d="m3 11 18-8-6.6 18-3.2-8.3L3 11Zm8.2 1.7L21 3"/></symbol>
+ <symbol id="chevron" viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"/></symbol>
+ <symbol id="cloud" viewBox="0 0 24 24"><path d="M6.7 18.3a4.2 4.2 0 0 1-.4-8.4 5.7 5.7 0 0 1 11-.7 4.6 4.6 0 0 1 .1 9.1H6.7Z"/></symbol>
+ <symbol id="paper" viewBox="0 0 24 24"><path d="M5.5 3h8.5l4.5 4.5V21h-13V3Zm8 .4v5h4.7M8.7 12h6.6m-6.6 4h5"/></symbol>
+ <symbol id="quiz" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="4"/><path d="m7.5 12 3 3 6-6"/></symbol>
+</svg>

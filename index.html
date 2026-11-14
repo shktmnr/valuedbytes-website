@@ -1,102 +1,167 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#071e48">
-  <meta name="description" content="Valued Bytes Technologies builds thoughtful software, mobile apps, desktop applications, websites, SaaS platforms and AI-powered solutions.">
-  <title>Valued Bytes Technologies — Technology with Values</title>
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Nastaliq+Urdu:wght@400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=hero-two-column-20261030">
-<script>/* Warm up the Urdu fallback while the larger Jameel fonts arrive. */
-(function(){var warm=function(){if(document.fonts&&document.fonts.load)document.fonts.load('400 18px "Noto Nastaliq Urdu"','اردو').catch(function(){});};if('requestIdleCallback' in window)requestIdleCallback(warm,{timeout:1200});else setTimeout(warm,200);})();</script></head>
-<body>
-  <header class="header" id="top"><div class="container header-inner">
-    <a href="#top" class="identity" aria-label="Valued Bytes Technologies home"><span class="brand-symbol"><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="brand-name"><strong>VALUED <em>BYTES</em></strong><small>TECHNOLOGIES</small></span></a>
-    <nav class="navigation" id="navigation" aria-label="Main navigation"><a href="#services">Services</a><a href="#solutions">Solutions</a><a href="#approach">Our Approach</a><a href="#about">About Us</a><a href="#contact">Contact</a></nav>
-    <div class="header-actions"><button class="language-switch" id="languageSwitch" type="button" aria-label="Switch website language to Urdu" title="Switch language">اردو</button><a class="button button-primary header-cta" href="#contact">Let's Talk <span aria-hidden="true">↗</span></a></div>
-    <button class="menu-button" aria-label="Open navigation" aria-expanded="false" aria-controls="navigation" id="menuButton"><i></i><i></i><i></i></button>
-  </div></header>
-  <main>
-    <section class="hero industry-hero" id="industries">
-      <div class="hero-glow glow-one"></div><div class="hero-glow glow-two"></div>
-      <div class="container industry-layout">
-        <div class="industry-copy" id="industryCopy">
-          <div class="hero-platform-heading"><span>ONE TEAM. EVERY PLATFORM.</span><h2>Powerful Technology.<br><em>Beautifully Simple.</em></h2><p>Thoughtfully designed tools for every screen, every team and every workflow.</p></div>
-          <div class="hero-platform-list" aria-label="Application development capabilities">
-            <article class="hero-platform-feature hero-platform-ai"><span class="platform-feature-icon">✳</span><div><strong>Local AI for your industry</strong><small>Get help with records, insights, reports and routine work—privately, with an AI solution tailored to your needs.</small></div><span class="platform-feature-arrow">↗</span></article>
-            <article class="hero-platform-feature"><span class="platform-feature-icon">⌘</span><div><strong>Web applications</strong><small>Anywhere access · live dashboards · cloud workflows</small></div><span class="platform-feature-arrow">↗</span></article>
-            <article class="hero-platform-feature"><span class="platform-feature-icon">▯</span><div><strong>Mobile applications</strong><small>Android & iOS · intuitive UX · on-the-go tasks</small></div><span class="platform-feature-arrow">↗</span></article>
-            <article class="hero-platform-feature"><span class="platform-feature-icon">▣</span><div><strong>Desktop software</strong><small>Reliable operations · focused tools · offline options</small></div><span class="platform-feature-arrow">↗</span></article>
-          </div>
-          <p class="industry-description industry-left-summary" id="industryDescription">Bring admissions, fees, attendance and reporting into one simple, organized experience. Spend less time on routine work and more time on what matters.</p>
-          <div class="hero-actions hero-left-actions"><a class="button button-primary industry-build-link" href="#contact">Let’s Build Yours <span aria-hidden="true">↗</span></a></div>
-        </div>
-        <div class="industry-stage" id="industryStage" aria-label="Animated industry showcase">
-      <div class="hero-intro industry-stage-intro" id="heroIntro">
-        <span class="industry-kicker"><span class="pulse"></span> TECHNOLOGY THAT WORKS FOR YOUR INDUSTRY</span>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#101015">
+  <meta name="description" content="Get a custom website, desktop app, web app, SaaS platform or mobile app for your school, college, mall, medical store, hospital or business. Explore VBT education products and talk to Valued Bytes Technologies on WhatsApp.">
+  <meta property="og:title" content="Valued Bytes Technologies · Websites &amp; Custom Software">
+  <meta property="og:description" content="Websites and software for the way you work. Explore our industry showcase and VBT education products.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://valuedbytes.com/studio/scenes/school.webp">
+  <link rel="icon" href="studio/mark.svg" type="image/svg+xml">
+  <link rel="preload" as="font" href="studio/fonts/inter-latin.woff2" type="font/woff2" crossorigin>
+  <link rel="preload" as="font" href="studio/fonts/instrument-italic.woff2" type="font/woff2" crossorigin>
+  <link rel="preload" as="image" href="studio/scenes/school.webp" fetchpriority="high">
+  <link rel="stylesheet" href="studio/site.css">
+  <script defer src="studio/site.js"></script>
+  <title>Valued Bytes Technologies · Websites &amp; Custom Software</title>
+</head>
+<body id="top">
+  <a class="skip" href="#main" data-ur="مرکزی مواد پر جائیں">Skip to content</a>
+  <header class="mast">
+    <div class="wrap mast-inner">
+      <a href="#top" class="brand" aria-label="Valued Bytes Technologies home">
+        <svg class="brand-mark" aria-hidden="true"><use href="studio/icons.svg#brand"/></svg>
+        <span class="brand-type"><strong>Valued Bytes</strong><small>TECHNOLOGIES</small></span>
+      </a>
+      <nav id="main-nav" class="main-nav" aria-label="Main navigation">
+        <a href="#services" data-ur="خدمات">Services</a>
+        <a href="#solutions" data-ur="پروڈکٹس">Products</a>
+        <a href="#industries" data-ur="شعبے">Industries</a>
+        <a href="#contact" data-ur="رابطہ">Contact</a>
+      </nav>
+      <div class="head-actions">
+        <button type="button" id="language" class="language" aria-label="اردو میں دیکھیں" title="اردو میں دیکھیں">
+          <svg class="icon" aria-hidden="true"><use href="studio/icons.svg#globe"/></svg><span lang="ur">اردو</span>
+        </button>
+        <a class="btn btn-light nav-cta" data-wa="header" href="https://wa.me/923227826078" target="_blank" rel="noopener"><span data-ur="بات کریں">Let’s talk</span><svg class="icon" aria-hidden="true"><use href="studio/icons.svg#north"/></svg></a>
+        <button class="menu-button" id="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav"><svg class="icon" aria-hidden="true"><use href="studio/icons.svg#menu"/></svg></button>
       </div>
-
-          <div class="industry-showcase-frame" id="industryShowcaseFrame">
-            <div class="industry-headline-row"><h1 id="industryHeadline">Less paperwork.<br><span>More learning.</span></h1></div>
-            <svg class="industry-perimeter-path" id="industryPerimeterSvg" aria-hidden="true"><path id="industryPerimeterPath"></path></svg>
-            <button type="button" class="industry-border-traveller" id="industryBorderTraveller" aria-label="See next industry" title="Click for the next industry"><span></span></button>
-            <div class="industry-frame-heading"><span class="frame-heading-led"></span><strong id="industryActiveName">Schools &amp; Colleges</strong><span class="frame-heading-status">VBT · LIVE SHOWCASE</span></div>
-            <div class="industry-art-panel" id="industryArtPanel">
-              <div class="art-topline"><span class="art-dots"><i></i><i></i><i></i></span><span>VBT / YOUR WORKSPACE</span><span class="art-signal">● LIVE PREVIEW</span></div>
-              <div class="art-illustration" id="industryArt" aria-hidden="true"></div>
-              <div class="art-caption"><span class="art-caption-icon" id="industryIcon">✦</span><div><strong id="industryArtTitle">Smart education, made simple.</strong><small id="industryArtSubtitle">Admissions · Attendance · Fees</small></div></div>
+    </div>
+  </header>
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="wrap hero-layout">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="status-dot"></span><span data-ur="ویب ڈیزائن اور سافٹ ویئر">DESIGN &amp; SOFTWARE STUDIO</span></div>
+          <h1 id="hero-heading" aria-label="Digital solutions for schools."><span class="hero-static" data-ur="ڈیجیٹل سلوشنز">Digital solutions</span>
+            <span class="type-line" aria-hidden="true"><span id="type-prefix">for </span><em id="industry-word">schools.</em><i class="typing-caret"></i></span>
+          </h1>
+          <p class="hero-lead" data-ur="اپنی ضروریات کے مطابق ویب سائٹ، ڈیسک ٹاپ ایپ، ویب ایپ، ساس پلیٹ فارم یا موبائل ایپ بنوائیں۔">Custom websites, desktop and web applications, SaaS platforms and mobile apps for the way you work.</p>
+          <p class="hero-bilingual" lang="ur" dir="rtl">اپنے ادارے یا کاروبار کے لیے ویب سائٹ اور سافٹ ویئر بنوائیں۔</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://wa.me/923227826078" target="_blank" rel="noopener" data-wa="hero"><svg class="icon" aria-hidden="true"><use href="studio/icons.svg#whatsapp"/></svg><span data-ur="اپنا پروجیکٹ شروع کریں">Start a project</span></a>
+            <a class="btn btn-quiet" href="#solutions"><span data-ur="پروڈکٹس دیکھیں">Explore products</span><svg class="icon" aria-hidden="true"><use href="studio/icons.svg#down"/></svg></a>
+          </div>
+        </div>
+        <div class="scene-card" id="industry-stage" role="region" aria-label="Industry showcase" aria-roledescription="carousel">
+          <div class="scene-picture">
+            <img id="scene-front" class="scene-image active" src="studio/scenes/school.webp" width="1080" height="720" fetchpriority="high" alt="Miniature schoolhouse with a clock above the entrance and a landscaped courtyard.">
+            <img id="scene-back" class="scene-image" width="1080" height="720" alt="" aria-hidden="true">
+            <div class="top-shade"></div>
+            <div class="scene-tools">
+              <span class="scene-tag"><svg class="icon" aria-hidden="true"><use href="studio/icons.svg#grid"/></svg><span data-ur="شعبوں کی جھلک">INDUSTRY SHOWCASE</span></span>
+              <button id="motion-toggle" type="button" class="circle-button pause" aria-label="Pause rotation" title="Pause rotation"><svg class="icon" aria-hidden="true"><use href="studio/icons.svg#pause"/></svg></button>
             </div>
-            <div class="industry-dot-dock" id="industryDotDock" aria-label="Choose industry"></div>
-          <div class="industry-toolkit frame-toolkit" aria-label="Examples of tailored features"><span class="toolkit-label">YOUR SMART WORKSPACE COULD INCLUDE</span><div class="toolkit-items" id="industryToolkit"><span>✦ Admissions</span><span>✦ Fee management</span><span>✦ Attendance</span></div></div>
-
           </div>
-          <p class="industry-pretitle industry-stage-audience"><span class="industry-for" id="industryForPrefix">For </span><span id="industryAudience">schools &amp; colleges</span></p>
-          <div class="industry-stage-footer"><div class="industry-more" id="industryMore">And much more…</div></div>
+          <div class="scene-caption">
+            <div class="caption-name"><span class="caption-icon"><svg class="icon" aria-hidden="true"><use id="scene-symbol" href="studio/icons.svg#school"/></svg></span><div><span class="scene-group" id="scene-group">EDUCATION</span><h2 id="scene-name">Schools</h2></div></div>
+            <div class="scene-controls"><span class="scene-count"><b id="scene-index">01</b><span>/</span>06</span>
+              <button type="button" class="circle-button" id="scene-prev" aria-label="Previous industry" title="Previous industry"><svg class="icon" aria-hidden="true"><use href="studio/icons.svg#left"/></svg></button>
+              <button type="button" class="circle-button" id="scene-next" aria-label="Next industry" title="Next industry"><svg class="icon" aria-hidden="true"><use href="studio/icons.svg#right"/></svg></button>
+            </div>
+          </div>
+          <div class="slide-positions" aria-hidden="true"><i class="active"></i><i></i><i></i><i></i><i></i><i></i></div>
         </div>
       </div>
-      <div class="container industry-value-bar" aria-label="How Valued Bytes helps"><div><span class="value-icon">⌁</span><strong>Less manual work</strong><small>Turn repeat tasks into simple workflows</small></div><div><span class="value-icon">✓</span><strong>Accurate records</strong><small>Keep essential information organized</small></div><div><span class="value-icon">▤</span><strong>Clear reports</strong><small>Understand what matters at a glance</small></div><div><span class="value-icon">✧</span><strong>Made around you</strong><small>Designed for your team and goals</small></div></div>
     </section>
-    <section class="intro-band"><div class="container band-inner"><p>ONE TECHNOLOGY PARTNER.<br><strong>EVERY DIGITAL POSSIBILITY.</strong></p><div class="band-items"><span>⌘ Web</span><span>◈ Mobile</span><span>▣ Desktop</span><span>✳ Artificial Intelligence</span><span>◎ SaaS</span></div></div></section>
-    <section id="services" class="section services-section"><div class="container"><div class="section-head row-head"><div><span class="eyebrow">WHAT WE DO</span><h2>Everything digital.<br><span class="gradient-text">One trusted team.</span></h2></div><p>Whether you're launching something new or modernizing what already exists, we bring strategy, design and development together to make it happen.</p></div>
-      <div class="services-grid">
-        <article class="service-card service-web"><div class="service-top"><span class="service-icon">⌘</span><span class="service-index">01 / 06</span></div><h3>Web Applications</h3><p>Fast, modern, scalable applications that help you manage operations, serve customers and grow online.</p><div class="service-tags"><span>Dashboards</span><span>Business Portals</span><span>SaaS</span></div><div class="service-visual visual-browser"><div class="browser-head"><i></i><i></i><i></i><span>yourapp.com</span></div><div class="browser-blocks"><b></b><div><i></i><i></i><i></i></div></div></div></article>
-        <article class="service-card service-mobile"><div class="service-top"><span class="service-icon">▯</span><span class="service-index">02 / 06</span></div><h3>Mobile App Development</h3><p>Intuitive mobile experiences that put your service right where your customers need it — in their hands.</p><div class="service-tags"><span>Android</span><span>iOS</span><span>Cross-platform</span></div><div class="service-visual visual-phone"><div class="phone-outline"><span>◌</span><b>Good things,<br>on the go.</b><div><i></i><i></i></div></div></div></article>
-        <article class="service-card service-desktop"><div class="service-top"><span class="service-icon">▣</span><span class="service-index">03 / 06</span></div><h3>Desktop Software</h3><p>Purpose-built software for workplaces that need reliable, focused tools for their daily operations.</p><div class="service-tags"><span>Management Systems</span><span>Productivity</span></div><div class="service-visual visual-desktop"><div class="window"><div>● ● ●</div><span>Applications, simplified.</span><i></i><i></i></div></div></article>
-        <article class="service-card service-sites"><div class="service-top"><span class="service-icon">◇</span><span class="service-index">04 / 06</span></div><h3>Website Design & Development</h3><p>Beautiful, responsive websites that tell your story, build trust and turn visitors into meaningful connections.</p><div class="service-tags"><span>Corporate</span><span>Landing Pages</span><span>eCommerce</span></div><div class="abstract-decoration site-decoration"><span>✦</span><span></span><span></span></div></article>
-        <article class="service-card service-ai"><div class="service-top"><span class="service-icon">✳</span><span class="service-index">05 / 06</span></div><h3>AI & Automation</h3><p>Bring intelligent assistance into your workflows — from automation and chat experiences to useful AI integrations.</p><div class="service-tags"><span>AI Integration</span><span>Automation</span><span>Assistants</span></div><div class="abstract-decoration ai-decoration"><span>✳</span><i>✦</i><b>✧</b></div></article>
-        <article class="service-card service-custom"><div class="service-top"><span class="service-icon">⚙</span><span class="service-index">06 / 06</span></div><h3>Custom Software & SaaS</h3><p>Unique challenge? We'll help shape a tailored product — from the first blueprint to a platform ready to grow.</p><div class="service-tags"><span>Custom Solutions</span><span>Cloud Platforms</span></div><div class="abstract-decoration custom-decoration"><span>⌘</span><i>◈</i><b>▦</b></div></article>
-      </div><p class="service-note">Solutions are scoped to each project's requirements; specific technology choices and integrations are determined during discovery.</p>
-    </div></section>
-    <section id="solutions" class="section products-section"><div class="container">
-      <div class="section-head centered products-heading"><span class="eyebrow">OUR PRODUCTS</span><h2>One vision. <span class="gradient-text">Two smart solutions.</span></h2><p>Education management, thoughtfully built for different needs. Explore our online SaaS platform and our Windows desktop application.</p></div>
-      <div class="product-grid">
-        <article class="product-card product-saas">
-          <div class="product-card-top"><span class="product-logo-badge">✦</span><span class="product-status status-roadmap"><i></i> In Development</span></div>
-          <div class="product-name">VBT <span>SmartCampus</span></div><p class="product-type">ONLINE SAAS PLATFORM</p>
-          <h3>Your campus, connected from anywhere.</h3><p class="product-description">A cloud-based education management platform being developed for schools and colleges. Our goal is to connect institutional teams, everyday tasks and important information through one beautifully simple experience.</p>
-          <div class="product-visual saas-visual" aria-label="Concept illustration of VBT SmartCampus online dashboard"><div class="saas-window"><div class="visual-toolbar"><span>● ● ●</span><b>SmartCampus / Overview</b></div><div class="saas-window-content"><div class="saas-sidebar">✦<i></i><i></i><i></i></div><div class="saas-dash"><strong>Campus Overview</strong><div class="saas-metrics"><span>Students <b>↗</b></span><span>Attendance <b>✓</b></span><span>Fees <b>▥</b></span></div><div class="saas-bars"><i></i><i></i><i></i><i></i><i></i><i></i></div></div></div></div><span class="visual-floating">☁ Designed for the cloud</span></div>
-          <h4>Planned areas of focus</h4><div class="product-feature-list"><span>Admissions & students</span><span>Academics & exams</span><span>Fees & reporting</span><span>Communication</span></div>
-          <div class="product-bottom"><a class="button button-primary" href="smartcampus/">Explore SmartCampus <span>↗</span></a><small>Preview the product vision and planned experience.</small></div>
-        </article>
-        <article class="product-card product-desktop">
-          <div class="product-card-top"><span class="product-logo-badge">▣</span><span class="product-status status-ready"><i></i> Windows v1.1.0 Available</span></div>
-          <div class="product-name">VBT <span>SmartSchool</span></div><p class="product-type">WINDOWS DESKTOP SOFTWARE</p>
-          <h3>Run your school with confidence, even offline.</h3><p class="product-description">Our developed Windows school management application brings the essentials of school administration together in a practical, offline-first workspace with local data storage.</p>
-          <div class="product-visual desktop-visual" aria-label="Concept illustration of the VBT SmartSchool desktop application"><div class="desktop-window"><div class="visual-toolbar"><span>● ● ●</span><b>VBT SmartSchool</b></div><div class="desktop-window-inner"><div class="desktop-menu"><strong>VBT</strong><span>▦ Dashboard</span><span>♙ Students</span><span>▣ Fees</span><span>✓ Attendance</span></div><div class="desktop-summary"><strong>School Dashboard</strong><div class="desktop-stats"><span><b>Students</b>Directory</span><span><b>Fees</b>Collections</span></div><div class="desktop-list"><i></i><i></i><i></i></div></div></div></div><span class="visual-floating desktop-floating">▣ Windows • Offline-first</span></div>
-          <h4>Key modules</h4><div class="product-feature-list"><span>Students & staff</span><span>Fees & salaries</span><span>Attendance & exams</span><span>Reports & backups</span></div>
-          <div class="product-bottom desktop-download"><div class="desktop-download-actions"><a class="button button-desktop" href="https://github.com/shktmnr/vbt-smartschool-downloads/releases/download/v1.1.0/VBT.SmartSchool.Setup.1.1.0.exe" aria-label="Download VBT SmartSchool version 1.1.0 installer for Windows">Download for Windows <span aria-hidden="true">↓</span></a><a class="download-guide-link" href="https://github.com/shktmnr/vbt-smartschool-downloads/releases/download/v1.1.0/VBT-SmartSchool-Easy-Guide.pdf" target="_blank" rel="noopener noreferrer">Installation guide <span aria-hidden="true">↗</span></a></div><div class="download-support-links"><a href="https://github.com/shktmnr/vbt-smartschool-downloads/releases/tag/v1.1.0" target="_blank" rel="noopener noreferrer">Release notes &amp; requirements ↗</a><a href="https://github.com/shktmnr/vbt-smartschool-downloads/releases/download/v1.1.0/SHA256.txt" target="_blank" rel="noopener noreferrer">SHA256 checksum ↗</a></div><small class="installer-note">Windows 10/11 (64-bit) · License activation required · Installer is currently unsigned; review the release notes before installing.</small></div>
-        </article>
+    <section id="services" class="capabilities" aria-label="Explore our services">
+      <div class="wrap cap-row">
+        <span class="cap-label" data-ur="ہماری خدمات">WHAT WE BUILD</span>
+        <button type="button" data-service="websites"><svg class="icon" aria-hidden="true"><use href="studio/icons.svg#browser"/></svg><span data-ur="ویب سائٹس">Websites</span></button>
+        <button type="button" data-service="desktop"><svg class="icon" aria-hidden="true"><use href="studio/icons.svg#desktop"/></svg><span data-ur="ڈیسک ٹاپ ایپس">Desktop apps</span></button>
+        <button type="button" data-service="webapps"><svg class="icon" aria-hidden="true"><use href="studio/icons.svg#code"/></svg><span data-ur="ویب ایپس">Web apps</span></button>
+        <button type="button" data-service="saas"><svg class="icon" aria-hidden="true"><use href="studio/icons.svg#layers"/></svg><span data-ur="ساس پلیٹ فارمز">SaaS platforms</span></button>
+        <button type="button" data-service="mobile"><svg class="icon" aria-hidden="true"><use href="studio/icons.svg#phone"/></svg><span data-ur="موبائل ایپس">Mobile apps</span></button>
       </div>
-      <div class="product-clarity"><span>✧</span><p><strong>Two separate products, one commitment to simplicity.</strong> SmartCampus is our online SaaS project in development. SmartSchool is our Windows desktop application. Their deployment, data storage and licensing are independent.</p></div>
-    </div></section>
-    <section id="approach" class="section approach-section"><div class="container"><div class="section-head centered"><span class="eyebrow">OUR APPROACH</span><h2>A good idea deserves<br><span class="gradient-text">a great journey.</span></h2><p>We keep the process collaborative, clear and focused on outcomes that actually matter to your business.</p></div><div class="steps"><div class="step"><span class="step-no">01</span><div class="step-icon">☏</div><h3>Let's understand</h3><p>We listen to your goals, users and the challenges you want to solve.</p></div><div class="step"><span class="step-no">02</span><div class="step-icon">✎</div><h3>Let's design</h3><p>We shape a thoughtful experience and a practical plan around your needs.</p></div><div class="step"><span class="step-no">03</span><div class="step-icon">⌘</div><h3>Let's build</h3><p>We bring the design to life and refine it with careful testing.</p></div><div class="step"><span class="step-no">04</span><div class="step-icon">↗</div><h3>Let's grow</h3><p>We help plan improvements as your product and ambitions evolve.</p></div></div></div></section>
-    <section id="about" class="section about-section"><div class="container about-grid"><div class="about-visual"><div class="values-halo"></div><div class="values-orb"><span>✦</span><strong>Technology<br>with <em>Values.</em></strong></div><div class="values-float vf-one">Human-centered</div><div class="values-float vf-two">Built with purpose ✳</div></div><div class="about-copy"><span class="eyebrow">WHY VALUED BYTES?</span><h2>Because technology should be <span class="gradient-text">about people.</span></h2><p>We're Valued Bytes Technologies — a software-focused brand guided by a simple belief: digital innovation should be useful, approachable and built with care.</p><p>We bring a human perspective to technical challenges, combining thoughtful design with purposeful development to create solutions people can feel good about using.</p><div class="value-points"><div><span>♡</span><strong>People first</strong><small>Experiences that respect the people behind every click.</small></div><div><span>✦</span><strong>Clarity by design</strong><small>Beautifully simple interfaces with practical purpose.</small></div></div></div></div></section>
-    <section class="section faq-section"><div class="container faq-grid"><div><span class="eyebrow">GOOD TO KNOW</span><h2>Questions?<br><span class="gradient-text">Let's make it clear.</span></h2><p>Every project begins with a conversation. Here are a few common starting points.</p></div><div class="faq-list"><details><summary>What kinds of projects can VBT help with?<span>+</span></summary><p>We focus on software and digital experiences, including websites, web apps, desktop software, mobile apps, custom SaaS platforms, and AI-enabled features.</p></details><details><summary>Can you build a fully custom solution?<span>+</span></summary><p>Yes. Tell us about the challenge and the outcome you want. We can discuss scope, features, architecture and a practical development plan.</p></details><details><summary>Can you modernize an existing application?<span>+</span></summary><p>We can explore redesign, workflow improvements, modernization, or integration options after understanding your current system and technical constraints.</p></details><details><summary>How do we begin a project?<span>+</span></summary><p>Simply get in touch with a brief outline of your idea. We'll start with requirements, expectations and the next sensible steps.</p></details></div></div></section>
-    <section class="contact-section" id="contact"><div class="container contact-panel"><div class="contact-light"></div><div class="contact-content"><span class="contact-overline">LET'S BUILD WHAT'S NEXT</span><h2>Have an idea?<br>Let's make it <em>real.</em></h2><p>Big vision or small starting point — we'd love to hear what you're working on.</p><div class="contact-buttons"><a href="mailto:info@valuedbytes.com?subject=New%20Project%20Inquiry%20-%20Valued%20Bytes%20Technologies" class="button button-white button-large">Prepare Project Email <span>↗</span></a><a class="contact-link" href="https://valuedbytes.com">valuedbytes.com ↗</a></div></div><div class="contact-decoration" aria-hidden="true"><span>V</span><span>B</span><span>T</span><i>✦</i></div></div></section>
+    </section>
+    <section class="products section" id="solutions" aria-labelledby="products-heading">
+      <div class="wrap">
+        <div class="eyebrow"><span class="little-rule"></span><span data-ur="ہماری پروڈکٹس">OUR PRODUCTS</span></div>
+        <div class="section-heading"><h2 id="products-heading" data-ur="تعلیم کے لیے ہمارے سافٹ ویئر">The VBT product suite<span class="title-dot">.</span></h2><p data-ur="اسکول کے انتظام، تدریس اور امتحانات کی تیاری کے لیے چار سافٹ ویئر۔">Four tools for the people who run schools, teach classes and set exams.</p></div>
+        <div class="product-grid">
+          <button type="button" class="product-card" data-product="smart-school">
+            <span class="product-art green"><img src="studio/products/smart-school.webp" width="666" height="444" alt="" loading="lazy"></span>
+            <span class="p-body"><span class="p-category green-ink"><i></i><span data-ur="ونڈوز ڈیسک ٹاپ">WINDOWS DESKTOP</span></span><strong lang="en" dir="ltr">VBT Smart School</strong><span class="card-copy" data-ur="طلبہ، فیس اور حاضری کا ریکارڈ اپنے کمپیوٹر پر رکھیں۔">Manage students, fees and attendance on your own PC.</span><span class="card-link"><span data-ur="تفصیل دیکھیں">Explore product</span><svg class="icon" aria-hidden="true"><use href="studio/icons.svg#north"/></svg></span></span>
+          </button>
+          <button type="button" class="product-card" data-product="smart-campus">
+            <span class="product-art blue"><img src="studio/products/smart-campus.webp" width="666" height="444" alt="" loading="lazy"></span>
+            <span class="p-body"><span class="p-category blue-ink"><i></i><span data-ur="کلاؤڈ پلیٹ فارم">CLOUD PLATFORM</span></span><strong lang="en" dir="ltr">VBT Smart Campus</strong><span class="card-copy" data-ur="اپنے اسکول یا کالج کے انتظام کے لیے آن لائن پلیٹ فارم دیکھیں۔">Explore an online workspace for your school or college.</span><span class="card-link"><span data-ur="تفصیل دیکھیں">Explore product</span><svg class="icon" aria-hidden="true"><use href="studio/icons.svg#north"/></svg></span></span>
+          </button>
+          <button type="button" class="product-card" data-product="paper-generator">
+            <span class="product-art gold"><img src="studio/products/paper-generator.webp" width="666" height="444" alt="" loading="lazy"></span>
+            <span class="p-body"><span class="p-category gold-ink"><i></i><span data-ur="امتحان کی تیاری">EXAM PREPARATION</span></span><strong lang="en" dir="ltr">VBT Paper Generator</strong><span class="card-copy" data-ur="سوالات کے ذخیرے سے مضمون اور موضوع کے مطابق پرچہ ترتیب دیں۔">Shape subject-wise exam papers from a question bank.</span><span class="card-link"><span data-ur="تفصیل دیکھیں">Explore product</span><svg class="icon" aria-hidden="true"><use href="studio/icons.svg#north"/></svg></span></span>
+          </button>
+          <button type="button" class="product-card" data-product="quiz-maker">
+            <span class="product-art pink"><img src="studio/products/quiz-maker.webp" width="666" height="444" alt="" loading="lazy"></span>
+            <span class="p-body"><span class="p-category pink-ink"><i></i><span data-ur="کلاس اسیسمنٹ">CLASSROOM ASSESSMENT</span></span><strong lang="en" dir="ltr">VBT Quiz Maker</strong><span class="card-copy" data-ur="کلاس میں مشق اور مختصر جائزے کے لیے کوئز تیار کریں۔">Create focused quizzes for class practice and revision.</span><span class="card-link"><span data-ur="تفصیل دیکھیں">Explore product</span><svg class="icon" aria-hidden="true"><use href="studio/icons.svg#north"/></svg></span></span>
+          </button>
+        </div>
+      </div>
+    </section>
+    <section class="industry-section section" id="industries" aria-labelledby="industries-heading">
+      <div class="wrap">
+        <div class="eyebrow"><span class="little-rule"></span><span data-ur="آپ کا شعبہ">YOUR INDUSTRY</span></div>
+        <div class="section-heading"><h2 id="industries-heading" data-ur="آپ کے کام کے مطابق">Built around your work<span class="title-dot">.</span></h2><p data-ur="اپنا شعبہ منتخب کریں اور دیکھیں کہ آپ کی ایپ میں کیا شامل ہو سکتا ہے۔">Choose your industry to see what a custom project could include.</p></div>
+        <div class="industry-tabs" aria-label="Choose your industry">
+          <button type="button" data-industry="0" aria-pressed="true"><svg class="icon" aria-hidden="true"><use href="studio/icons.svg#school"/></svg><span data-ur="اسکول">Schools</span></button>
+          <button type="button" data-industry="1" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="studio/icons.svg#college"/></svg><span data-ur="کالج">Colleges</span></button>
+          <button type="button" data-industry="2" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="studio/icons.svg#mall"/></svg><span data-ur="شاپنگ مال">Malls</span></button>
+          <button type="button" data-industry="3" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="studio/icons.svg#pharmacy"/></svg><span data-ur="میڈیکل اسٹور">Medical stores</span></button>
+          <button type="button" data-industry="4" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="studio/icons.svg#hospital"/></svg><span data-ur="اسپتال">Hospitals</span></button>
+          <button type="button" data-industry="5" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="studio/icons.svg#business"/></svg><span data-ur="دیگر کاروبار">Other businesses</span></button>
+        </div>
+        <div class="industry-detail">
+          <div class="industry-figure"><img id="detail-image" src="studio/scenes/school.webp" alt="" width="1080" height="720" loading="lazy"></div>
+          <div class="industry-brief">
+            <span class="brief-group" id="detail-group">EDUCATION</span><h3 id="detail-title">A school day, organised.</h3>
+            <p id="detail-copy">Give the office a single place to follow admissions, fees and attendance, from the first enrolment to the last report.</p>
+            <ul class="tags" id="detail-tags"><li>Admissions</li><li>Fee records</li><li>Attendance</li></ul>
+            <a class="inline-link" id="industry-inquiry" href="https://wa.me/923227826078" target="_blank" rel="noopener"><span data-ur="اپنے پروجیکٹ پر بات کریں">Discuss your project</span><svg class="icon" aria-hidden="true"><use href="studio/icons.svg#north"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="process-section section" id="approach" aria-labelledby="approach-heading">
+      <div class="wrap process-wrap">
+        <div class="process-intro" id="about"><div class="eyebrow"><span class="little-rule"></span><span data-ur="ہمارا طریقۂ کار">OUR APPROACH</span></div><h2 id="approach-heading" data-ur="خیال سے عملی استعمال تک">From idea to launch<span class="title-dot">.</span></h2><p data-ur="کسی ایک روزمرہ کام سے آغاز کریں جسے آپ اپنی ٹیم یا گاہکوں کے لیے آسان بنانا چاہتے ہیں۔">Start with one task you want to make easier for your team or your customers.</p></div>
+        <div class="steps">
+          <div class="step"><svg class="icon" aria-hidden="true"><use href="studio/icons.svg#whatsapp"/></svg><div><h3 data-ur="اپنا کام بتائیں">Talk through your workflow</h3><p data-ur="ہم دیکھتے ہیں کہ یہ کام کون کرتا ہے اور آج کس طرح مکمل ہوتا ہے۔">We learn who does the work and how they do it today.</p></div></div>
+          <div class="step"><svg class="icon" aria-hidden="true"><use href="studio/icons.svg#sliders"/></svg><div><h3 data-ur="ڈیزائن کا جائزہ لیں">Review the design</h3><p data-ur="کام شروع ہونے سے پہلے اہم اسکرینیں دیکھیں اور ضروری فیچرز طے کریں۔">See the key screens and agree on the features before development.</p></div></div>
+          <div class="step"><svg class="icon" aria-hidden="true"><use href="studio/icons.svg#send"/></svg><div><h3 data-ur="آزمائیں اور استعمال کریں">Test it and launch</h3><p data-ur="اپنی ٹیم کے ساتھ مکمل کام آزما کر اسے استعمال کے لیے تیار کریں۔">Try the full workflow with your team, refine it and put it to work.</p></div></div>
+        </div>
+      </div>
+    </section>
+    <section id="contact" class="contact-section" aria-labelledby="contact-heading">
+      <div class="wrap contact-panel">
+        <div class="contact-copy"><div class="eyebrow"><span class="status-dot"></span><span data-ur="ہم سے رابطہ کریں">GET IN TOUCH</span></div><h2 id="contact-heading" data-ur="آپ کیا بنوانا چاہتے ہیں؟">What would you <em>like to build?</em></h2>
+          <p data-ur="اپنے ادارے یا کاروبار کے بارے میں ہمیں واٹس ایپ پر بتائیں۔ آپ اردو یا انگریزی، دونوں زبانوں میں بات کر سکتے ہیں۔">Tell us a little about your organisation and the idea you have in mind. Write to us in English or Urdu.</p>
+          <a class="btn btn-primary" href="https://wa.me/923227826078" target="_blank" rel="noopener" data-wa="contact"><svg class="icon" aria-hidden="true"><use href="studio/icons.svg#whatsapp"/></svg><span data-ur="واٹس ایپ پر بات کریں">Chat on WhatsApp</span></a>
+        </div>
+        <div class="contact-details"><div><span class="overline" data-ur="واٹس ایپ نمبر">WHATSAPP</span><a class="number" dir="ltr" href="https://wa.me/923227826078" target="_blank" rel="noopener">0322 7826078</a></div>
+          <div><span class="overline" data-ur="ای میل">EMAIL</span><a dir="ltr" href="mailto:info@valuedbytes.com">info@valuedbytes.com</a></div>
+        </div>
+      </div>
+    </section>
   </main>
-  <footer class="footer"><div class="container footer-top"><div><a href="#top" class="identity footer-identity"><span class="brand-symbol"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="brand-name"><strong>VALUED <em>BYTES</em></strong><small>TECHNOLOGIES</small></span></a><p>Thoughtful digital experiences.<br>Technology with values.</p><img src="assets/VBT.webp" alt="Official Valued Bytes Technologies logo" class="official-logo"></div><div class="footer-links"><strong>Explore</strong><a href="#services">Our Services</a><a href="#solutions">Our Solutions</a><a href="#approach">How We Work</a><a href="#about">Our Philosophy</a></div><div class="footer-links"><strong>Connect</strong><a href="#contact">Start a Conversation ↗</a><a href="https://valuedbytes.com">valuedbytes.com ↗</a></div></div><div class="container footer-bottom"><span>© <span id="year"></span> Valued Bytes Technologies. All rights reserved.</span><span>Made with purpose ✦</span></div></footer>
-  <script src="script.js?v=hero-two-column-20261030"></script>
-  <script src="i18n.js?v=orbit-20261023-2"></script>
-</body></html>
+  <footer><div class="wrap footer-row"><a href="#top" class="brand" aria-label="Valued Bytes home"><svg class="brand-mark" aria-hidden="true"><use href="studio/icons.svg#brand"/></svg><span class="brand-type"><strong>Valued Bytes</strong><small>TECHNOLOGIES</small></span></a>
+    <span class="copyright" dir="ltr">© <span id="year">2026</span> Valued Bytes Technologies</span><a class="back-top" href="#top"><span data-ur="اوپر جائیں">Back to top</span><svg class="icon" aria-hidden="true"><use href="studio/icons.svg#north"/></svg></a></div></footer>
+  <dialog id="details-dialog" aria-labelledby="dialog-heading">
+    <div class="dialog-shell"><button type="button" class="circle-button dialog-close" id="dialog-close" aria-label="Close" title="Close"><svg class="icon" aria-hidden="true"><use href="studio/icons.svg#close"/></svg></button>
+    <div id="dialog-art" class="dialog-art" hidden><img width="666" height="444" alt=""></div>
+    <div class="dialog-content"><span class="eyebrow" id="dialog-kicker"></span><h2 id="dialog-heading"></h2><p id="dialog-description"></p><div id="dialog-extra"></div><div class="dialog-actions" id="dialog-actions"></div></div></div>
+  </dialog>
+  <div class="sr-only" aria-live="polite" id="carousel-notice"></div>
+</body>
+</html>
