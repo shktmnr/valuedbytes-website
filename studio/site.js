@@ -8,33 +8,33 @@
   const releaseFiles = schoolRelease + "download/v1.1.0/";
 
   const industries = [
-    {key:"school", en:"Schools", ur:"اسکول", group:["Education","تعلیم"], word:["schools.","اسکولوں کے لیے"],
-      alt:["Miniature schoolhouse with a central clock, classroom wings and a landscaped courtyard.","اسکول کی عمارت، مرکزی گھڑی اور صحن کا ماڈل۔"],
+    {key:"school", en:"Schools", ur:"اسکول", group:["Education","تعلیم"], word:["school.","آپ کے اسکول کے لیے"],
+      alt:["A schoolhouse with a clock and a school bus rising from a laptop screen.","لیپ ٹاپ کی اسکرین پر اسکول، گھڑی اور اسکول بس کا ماڈل۔"],
       title:["A school day, organised.","اسکول کا ریکارڈ ایک جگہ"],
       copy:["Give the office a single place to follow admissions, fees and attendance, from the first enrolment to the last report.","داخلے سے لے کر آخری رپورٹ تک، اسکول کا عملہ فیس، حاضری اور طلبہ کا ریکارڈ ایک ہی جگہ دیکھ سکے۔"],
       tags:[["Admissions","Fee records","Attendance"],["داخلے","فیس کا ریکارڈ","حاضری"]]},
-    {key:"college", en:"Colleges", ur:"کالج", group:["Higher education","اعلیٰ تعلیم"], word:["colleges.","کالجوں کے لیے"],
-      alt:["Architectural model of a college campus with a domed library and columned entrance.","گنبد اور ستونوں والی لائبریری کے ساتھ کالج کیمپس کا ماڈل۔"],
+    {key:"college", en:"Colleges", ur:"کالج", group:["Higher education","اعلیٰ تعلیم"], word:["college.","آپ کے کالج کے لیے"],
+      alt:["A college library and its domed hall rising from a laptop display.","لیپ ٹاپ کی اسکرین پر گنبد والی کالج لائبریری کا ماڈل۔"],
       title:["A connected college office.","کالج کے شعبوں میں رابطہ"],
       copy:["Help admissions, academic departments and the examination office work from the same student records.","داخلہ، تدریسی اور امتحانی شعبے طلبہ کے ایک ہی ریکارڈ سے اپنے روزمرہ کام مکمل کر سکیں۔"],
       tags:[["Admissions portal","Class schedules","Exam results"],["داخلہ پورٹل","کلاس کے اوقات","امتحانی نتائج"]]},
-    {key:"mall", en:"Malls", ur:"شاپنگ مال", group:["Retail","خریداری"], word:["malls.","شاپنگ مالز کے لیے"],
-      alt:["Miniature shopping mall with a glazed atrium and illuminated storefronts.","شیشے کی دیواروں اور روشن دکانوں والے شاپنگ مال کا ماڈل۔"],
+    {key:"mall", en:"Malls", ur:"شاپنگ مال", group:["Retail","خریداری"], word:["mall.","آپ کے شاپنگ مال کے لیے"],
+      alt:["A glass-fronted shopping mall and escalators rising from a laptop.","لیپ ٹاپ پر شیشے کی دیواروں اور برقی سیڑھیوں والا شاپنگ مال۔"],
       title:["A better visit starts online.","خریداری سے پہلے رہنمائی"],
       copy:["Let visitors find a store before they arrive and give your management team a place to publish offers and events.","آنے والے افراد کو دکانیں تلاش کرنے میں مدد دیں اور اپنی انتظامیہ کو آفرز اور تقریبات شائع کرنے کی سہولت دیں۔"],
       tags:[["Store directory","Visitor website","Events calendar"],["دکانوں کی فہرست","وزیٹر ویب سائٹ","تقریبات کا کیلنڈر"]]},
-    {key:"pharmacy", en:"Medical stores", ur:"میڈیکل اسٹور", group:["Pharmacy retail","فارمیسی"], word:["medical stores.","میڈیکل اسٹورز کے لیے"],
-      alt:["Corner pharmacy model with a green cross, shop window and lavender awning.","سبز نشان، شیشے کی کھڑکی اور سائبان والے میڈیکل اسٹور کا ماڈل۔"],
+    {key:"pharmacy", en:"Medical stores", ur:"میڈیکل اسٹور", group:["Pharmacy retail","فارمیسی"], word:["medical store.","آپ کے میڈیکل اسٹور کے لیے"],
+      alt:["A neighbourhood pharmacy with a green cross emerging from a laptop.","لیپ ٹاپ کی اسکرین پر سبز نشان والے میڈیکل اسٹور کا ماڈل۔"],
       title:["Stock you can keep track of.","اسٹاک کا حساب آسان"],
       copy:["Build a counter and stockroom workflow around purchases, shelf quantities and batches approaching expiry.","خریداری، شیلف پر موجود مقدار اور میعاد ختم ہونے کے قریب بیچوں کا ریکارڈ اپنے کاؤنٹر اور اسٹور کے مطابق بنوائیں۔"],
       tags:[["Stock register","Batch expiry","Sales records"],["اسٹاک رجسٹر","بیچ کی میعاد","فروخت کا ریکارڈ"]]},
-    {key:"hospital", en:"Hospitals", ur:"اسپتال", group:["Healthcare","صحت"], word:["hospitals.","اسپتالوں کے لیے"],
-      alt:["Hospital scale model with a covered drop-off, a medical cross and an ambulance.","مرکزی داخلی راستے اور ایمبولینس کے ساتھ اسپتال کی عمارت کا ماڈل۔"],
+    {key:"hospital", en:"Hospitals", ur:"اسپتال", group:["Healthcare","صحت"], word:["hospital.","آپ کے اسپتال کے لیے"],
+      alt:["Hospital wings and an ambulance on the open screen of a laptop.","لیپ ٹاپ پر اسپتال کی عمارت اور ایمبولینس کا ماڈل۔"],
       title:["A smoother front desk.","استقبالیہ کا کام آسان"],
       copy:["Give patients an easy way to request an appointment and help reception manage bookings, schedules and billing.","مریضوں کے لیے وقت لینے کا عمل آسان کریں اور استقبالیہ کو بکنگ، شیڈول اور بلنگ سنبھالنے کی سہولت دیں۔"],
       tags:[["Appointments","Reception desk","Billing"],["اپائنٹمنٹس","استقبالیہ","بلنگ"]]},
-    {key:"business", en:"Other businesses", ur:"دیگر کاروبار", group:["Business operations","کاروبار"], word:["businesses.","ہر کاروبار کے لیے"],
-      alt:["Model of a small business with a showroom, offices and a delivery van.","شوروم، دفتر اور ڈلیوری وین کے ساتھ ایک کاروباری عمارت کا ماڈل۔"],
+    {key:"business", en:"Other businesses", ur:"دیگر کاروبار", group:["Business operations","کاروبار"], word:["business.","آپ کے کاروبار کے لیے"],
+      alt:["A furniture showroom with a delivery van rising out of a laptop.","لیپ ٹاپ کی اسکرین پر فرنیچر شوروم اور ڈلیوری وین کا ماڈل۔"],
       title:["Built for your kind of business.","آپ کے کاروبار کے مطابق"],
       copy:["Start with the job your team repeats every day. A website or custom app can connect enquiries, orders and customer follow-up.","اپنی ٹیم کا کوئی روزمرہ کام منتخب کریں۔ ایک ویب سائٹ یا ایپ معلومات کی درخواستوں، آرڈرز اور گاہکوں سے رابطے کو ایک جگہ لا سکتی ہے۔"],
       tags:[["Customer enquiries","Order tracking","Team reports"],["گاہکوں کی درخواستیں","آرڈر کی نگرانی","ٹیم رپورٹس"]]}
@@ -57,6 +57,8 @@
 
   let lang = "en";
   let current = 0;
+  let targetIndex = 0;
+  let heroInView = true;
   let detail = 0;
   let activeImage = $("#scene-front");
   let paused = media.matches;
@@ -73,13 +75,30 @@
   const say = (english, urdu) => latin() ? english : urdu;
   const nameOf = sector => sector[lang];
   const numberFor = value => String(value).padStart(2,"0");
-  const sceneURL = sector => "studio/scenes/" + sector.key + ".webp";
+  const sceneURL = sector => "studio/showcase/" + sector.key + ".webp";
   const whatsApp = message => "https://wa.me/923227826078?text=" + encodeURIComponent(message);
 
   function waMessage(subject) {
     return say("Assalam-o-alaikum, I’d like to discuss " + subject + " with Valued Bytes Technologies.",
       "السلام علیکم، میں ویلیوڈ بائٹس ٹیکنالوجیز سے " + subject + " کے بارے میں بات کرنا چاہتا ہوں۔");
   }
+  function quoteMessage(service = "", sector = "", note = "") {
+    const lines = [say("Assalam-o-alaikum! I’d like a project quote from Valued Bytes Technologies in Chiniot.",
+      "السلام علیکم! مجھے چنیوٹ میں ویلیوڈ بائٹس ٹیکنالوجیز سے اپنے پروجیکٹ کی قیمت معلوم کرنی ہے۔")];
+    if (service) lines.push(say("Service requested — ","مطلوبہ سروس — ") + service);
+    if (sector) lines.push(say("Industry — ","شعبہ — ") + sector);
+    if (note) lines.push(note);
+    return lines.join("\n");
+  }
+
+  function updateBrief() {
+    const service = services[$("#brief-service").value];
+    const sector = industries.find(entry => entry.key === $("#brief-industry").value);
+    const note = $("#brief-note").value.trim();
+    const message = quoteMessage(service ? pick(service.name) : "", sector ? nameOf(sector) : "", note);
+    $('[data-wa="contact"]').href = whatsApp(message);
+  }
+
   function setLabel(selector, label) {
     const button = $(selector);
     button.setAttribute("aria-label",label);
@@ -117,15 +136,17 @@
   function renderScene() {
     const sector = industries[current];
     const word = pick(sector.word);
-    $("#type-prefix").textContent = latin() ? "for " : "";
+    $("#type-prefix").textContent = latin() ? "for your " : "";
     $("#industry-word").textContent = word;
-    $(".type-line").dataset.long = String(latin() && word.length > 12);
-    $("#hero-heading").setAttribute("aria-label",say("Digital solutions for " + sector.en.toLowerCase() + ".","ڈیجیٹل سلوشنز " + sector.word[1]));
+    $(".type-line").dataset.long = String(latin() ? word.length > 11 : word.length > 19);
+    $("#hero-heading").setAttribute("aria-label",say("Websites and apps for your " + sector.word[0],"ویب سائٹس اور ایپس " + sector.word[1]));
     $("#scene-name").textContent = nameOf(sector);
-    $("#scene-group").textContent = pick(sector.group).toLocaleUpperCase(lang);
+    $("#scene-group").textContent = pick(sector.tags).join(" · ");
     $("#scene-symbol").setAttribute("href",icons + sector.key);
     $("#scene-index").textContent = numberFor(current + 1);
-    $$(".slide-positions i").forEach((el,i) => el.classList.toggle("active",i === current));
+    $$("[data-hero-pick]").forEach(button => {
+      button.setAttribute("aria-pressed",String(Number(button.dataset.heroPick) === current));
+    });
     const src = sceneURL(sector);
     if (activeImage.getAttribute("src") !== src) {
       const incoming = activeImage.id === "scene-front" ? $("#scene-back") : $("#scene-front");
@@ -140,32 +161,33 @@
     } else {
       activeImage.alt = pick(sector.alt);
     }
-    $('[data-wa="hero"]').href = whatsApp(waMessage(say("a custom project for " + sector.en.toLowerCase(),sector.ur + " کے لیے ایک پروجیکٹ")));
+    $('[data-wa="hero"]').href = whatsApp(quoteMessage("",nameOf(sector)));
     $("#industry-stage").dataset.industry = sector.key;
   }
   function renderIndustryDetail() {
     const sector = industries[detail];
-    $("#detail-image").src = sceneURL(sector);
+    $("#detail-image").src = "studio/scenes/" + sector.key + ".webp";
     $("#detail-group").textContent = pick(sector.group).toLocaleUpperCase(lang);
     $("#detail-title").textContent = pick(sector.title);
     $("#detail-copy").textContent = pick(sector.copy);
     tags($("#detail-tags"),pick(sector.tags));
-    $("#industry-inquiry").href = whatsApp(waMessage(say("a custom project for " + sector.en.toLowerCase(),sector.ur + " کے لیے ایک پروجیکٹ")));
-    $$("[data-industry]").forEach((el,i) => el.setAttribute("aria-pressed",String(detail === i)));
+    $("#industry-inquiry").href = whatsApp(quoteMessage("",nameOf(sector)));
+    $$("[data-industry]").forEach(button => button.setAttribute("aria-pressed",String(detail === Number(button.dataset.industry))));
   }
   function stopTimers() {
     window.clearTimeout(timer);
     imageRequest++;
   }
-  function canPlay() { return !paused && !document.hidden && !dialog.open; }
+  function canPlay() { return !paused && heroInView && !document.hidden && !dialog.open; }
   function setMotionUI() {
+    document.body.dataset.motion = paused ? "paused" : "playing";
     setLabel("#motion-toggle",paused ? say("Play rotation","شعبوں کی خودکار تبدیلی چلائیں") : say("Pause rotation","شعبوں کی خودکار تبدیلی روکیں"));
     $("#motion-toggle use").setAttribute("href",icons + (paused ? "play" : "pause"));
     $(".typing-caret").classList.toggle("still",paused);
   }
   function schedule() {
     window.clearTimeout(timer);
-    if (canPlay()) timer = window.setTimeout(() => { changeScene(current + 1,false); },6000);
+    if (canPlay()) timer = window.setTimeout(() => { changeScene(current + 1,false); },7600);
   }
   function typeText(full,token) {
     if (media.matches || paused || !canPlay()) { schedule(); return; }
@@ -186,10 +208,11 @@
     stopTimers();
     const token = imageRequest;
     const next = (index + industries.length) % industries.length;
+    targetIndex = next;
     if (manual) { paused = true; setMotionUI(); }
     const ready = await preload(industries[next]);
     if (token !== imageRequest) return;
-    if (!ready) { schedule(); return; }
+    if (!ready) { targetIndex = current; schedule(); return; }
     current = next;
     renderScene();
     if (manual) $("#carousel-notice").textContent = nameOf(industries[current]) + " · " + (current + 1) + "/6";
@@ -198,6 +221,7 @@
   }
   function settleMotion() {
     stopTimers();
+    targetIndex = current;
     $("#industry-word").textContent = pick(industries[current].word);
     setMotionUI();
     schedule();
@@ -225,7 +249,7 @@
     const subtitle = $(".hero-bilingual");
     subtitle.lang = latin() ? "ur" : "en";
     subtitle.dir = latin() ? "rtl" : "ltr";
-    subtitle.textContent = say("اپنے ادارے یا کاروبار کے لیے ویب سائٹ اور سافٹ ویئر بنوائیں۔","Custom websites and software for your organisation or business.");
+    subtitle.textContent = say("اپنے شہر چنیوٹ میں، مناسب قیمت پر معیاری ویب سائٹ اور ایپ بنوائیں۔","Premium websites and apps at affordable prices, right here in Chiniot.");
     setLabel("#scene-prev",say("Previous industry","پچھلا شعبہ"));
     setLabel("#scene-next",say("Next industry","اگلا شعبہ"));
     setLabel("#dialog-close",say("Close details","تفصیل بند کریں"));
@@ -233,10 +257,11 @@
     nav.setAttribute("aria-label",say("Main navigation","مرکزی مینو"));
     $(".industry-tabs").setAttribute("aria-label",say("Choose your industry","اپنا شعبہ منتخب کریں"));
     $("#services").setAttribute("aria-label",say("Explore our services","ہماری خدمات دیکھیں"));
-    document.title = say("Valued Bytes Technologies · Websites & Custom Software","ویلیوڈ بائٹس ٹیکنالوجیز · ویب سائٹس اور سافٹ ویئر");
-    const general = whatsApp(waMessage(say("a website or software project","ویب سائٹ یا سافٹ ویئر کے ایک پروجیکٹ")));
-    $('[data-wa="header"]').href = general;
-    $('[data-wa="contact"]').href = general;
+    $(".hero-sectors").setAttribute("aria-label",say("Select an industry for the showcase","اپنا شعبہ منتخب کریں"));
+    $("#brief-note").placeholder = say("For example, track orders and print receipts.","مثلاً آرڈر کا ریکارڈ رکھنا اور رسیدیں پرنٹ کرنا۔");
+    document.title = say("Valued Bytes Technologies · Websites & Apps in Chiniot","ویلیوڈ بائٹس ٹیکنالوجیز · چنیوٹ میں ویب سائٹس اور ایپس");
+    $('[data-wa="header"]').href = whatsApp(quoteMessage());
+    updateBrief();
     toggleMenu(false);
     renderScene();
     renderIndustryDetail();
@@ -268,8 +293,9 @@
     const item = isProduct ? products[modal.id] : services[modal.id];
     const title = isProduct ? item.name : pick(item.name);
     const art = $("#dialog-art");
-    art.hidden = !isProduct;
-    if (isProduct) $("img",art).src = "studio/products/" + modal.id + ".webp";
+    art.hidden = false;
+    art.dataset.kind = modal.type;
+    $("img",art).src = "studio/" + (isProduct ? "products/" : "services/") + modal.id + ".webp";
     const heading = $("#dialog-heading");
     heading.lang = isProduct ? "en" : lang;
     heading.dir = isProduct ? "ltr" : document.documentElement.dir;
@@ -288,8 +314,8 @@
       actions.append(linkButton(say("Download for Windows","ونڈوز کے لیے ڈاؤن لوڈ"),releaseFiles+"VBT.SmartSchool.Setup.1.1.0.exe",true,"down"));
     }
     if (modal.id === "smart-campus") actions.append(linkButton(say("Visit product page","پروڈکٹ کا صفحہ دیکھیں"),"smartcampus/",true,"north"));
-    const inquiry = waMessage(isProduct ? title : say("a " + title.toLowerCase() + " project",title + " کے پروجیکٹ"));
-    actions.append(linkButton(isProduct ? say("Ask on WhatsApp","واٹس ایپ پر دریافت کریں") : say("Discuss this project","اس پروجیکٹ پر بات کریں"),whatsApp(inquiry),!actions.children.length,"whatsapp"));
+    const inquiry = isProduct ? waMessage(title) : quoteMessage(title);
+    actions.append(linkButton(isProduct ? say("Ask on WhatsApp","واٹس ایپ پر دریافت کریں") : say("Get a WhatsApp quote","واٹس ایپ پر قیمت معلوم کریں"),whatsApp(inquiry),!actions.children.length,"whatsapp"));
   }
   function openDialog(type,id,trigger) {
     modal = {type,id}; returnFocus = trigger;
@@ -305,11 +331,16 @@
   });
   $$("[data-service]").forEach(button => button.addEventListener("click",() => openDialog("service",button.dataset.service,button)));
   $$("[data-product]").forEach(button => button.addEventListener("click",() => openDialog("product",button.dataset.product,button)));
-  $$("[data-industry]").forEach(button => button.addEventListener("click",() => {
-    detail = Number(button.dataset.industry); renderIndustryDetail(); changeScene(detail,true);
+  $$("[data-industry], [data-hero-pick]").forEach(button => button.addEventListener("click",() => {
+    detail = Number(button.dataset.industry ?? button.dataset.heroPick);
+    renderIndustryDetail();
+    changeScene(detail,true);
   }));
-  $("#scene-prev").addEventListener("click",() => changeScene(current - 1,true));
-  $("#scene-next").addEventListener("click",() => changeScene(current + 1,true));
+  $("#brief-service").addEventListener("change",updateBrief);
+  $("#brief-industry").addEventListener("change",updateBrief);
+  $("#brief-note").addEventListener("input",updateBrief);
+  $("#scene-prev").addEventListener("click",() => changeScene(targetIndex - 1,true));
+  $("#scene-next").addEventListener("click",() => changeScene(targetIndex + 1,true));
   $("#motion-toggle").addEventListener("click",() => {paused = !paused; settleMotion();});
   languageButton.addEventListener("click",() => setLanguage(latin() ? "ur" : "en"));
   $("#menu-toggle").addEventListener("click",() => toggleMenu(!nav.classList.contains("is-open")));
@@ -320,7 +351,15 @@
   });
   document.addEventListener("visibilitychange",settleMotion);
   media.addEventListener("change",event => {paused = event.matches; settleMotion();});
-  window.matchMedia("(max-width:700px)").addEventListener("change",() => toggleMenu(false));
+  window.matchMedia("(max-width:760px)").addEventListener("change",() => toggleMenu(false));
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(([entry]) => {
+      if (heroInView === entry.isIntersecting) return;
+      heroInView = entry.isIntersecting;
+      if (!paused) settleMotion();
+    }, {threshold:0.05});
+    observer.observe($(".hero"));
+  }
   $("#year").textContent = new Date().getFullYear();
   let preferred = "en";
   try { preferred = localStorage.getItem("vbt-studio-language") || (localStorage.getItem("vbt-site-language") === "ur" ? "ur" : "en"); } catch {}
