@@ -55,7 +55,7 @@
     "quiz-maker":{name:"VBT Quiz Maker",kind:["Classroom assessment","کلاس اسیسمنٹ"],copy:["A quiz-making project for teachers who want short, topic-focused assessments. Tell us how you run classroom practice and ask about availability.","مختصر اور موضوع کے مطابق جائزے کے لیے اساتذہ کا کوئز سازی کا منصوبہ۔ اپنی کلاس کی ضروریات بتائیں اور دستیابی کے بارے میں دریافت کریں۔"],tags:[["Topic quizzes","Class practice","Revision"],["موضوعاتی کوئز","کلاس میں مشق","دہرائی"]]}
   };
 
-  let lang = "en";
+  const lang = document.documentElement.lang;
   let current = 0;
   let targetIndex = 0;
   let heroInView = true;
@@ -68,7 +68,6 @@
   let returnFocus = null;
   const dialog = $("#details-dialog");
   const nav = $("#main-nav");
-  const languageButton = $("#language");
   const heroPhotos = new Map();
   const latin = () => lang === "en";
   const pick = pair => pair[latin() ? 0 : 1];
@@ -233,43 +232,6 @@
     setLabel("#menu-toggle",open ? say("Close menu","مینو بند کریں") : say("Open menu","مینو کھولیں"));
   }
 
-  const originalText = new Map($$("[data-ur]").map(el => [el,el.innerHTML]));
-  function setLanguage(value, persist = true) {
-    lang = value === "ur" ? "ur" : "en";
-    document.documentElement.lang = lang;
-    document.documentElement.dir = latin() ? "ltr" : "rtl";
-    for (const [el,original] of originalText) {
-      if (latin()) el.innerHTML = original;
-      else el.textContent = el.dataset.ur;
-    }
-    const label = $("span",languageButton);
-    label.lang = latin() ? "ur" : "en";
-    label.textContent = say("اردو","English");
-    setLabel("#language",say("اردو میں دیکھیں","Switch to English"));
-    const subtitle = $(".hero-bilingual");
-    subtitle.lang = latin() ? "ur" : "en";
-    subtitle.dir = latin() ? "rtl" : "ltr";
-    subtitle.textContent = say("اپنے شہر چنیوٹ میں، مناسب قیمت پر معیاری ویب سائٹ اور ایپ بنوائیں۔","Premium websites and apps at affordable prices, right here in Chiniot.");
-    setLabel("#scene-prev",say("Previous industry","پچھلا شعبہ"));
-    setLabel("#scene-next",say("Next industry","اگلا شعبہ"));
-    setLabel("#dialog-close",say("Close details","تفصیل بند کریں"));
-    $("#industry-stage").setAttribute("aria-label",say("Industry showcase","شعبوں کی جھلک"));
-    nav.setAttribute("aria-label",say("Main navigation","مرکزی مینو"));
-    $(".industry-tabs").setAttribute("aria-label",say("Choose your industry","اپنا شعبہ منتخب کریں"));
-    $("#services").setAttribute("aria-label",say("Explore our services","ہماری خدمات دیکھیں"));
-    $(".hero-sectors").setAttribute("aria-label",say("Select an industry for the showcase","اپنا شعبہ منتخب کریں"));
-    $("#brief-note").placeholder = say("For example, track orders and print receipts.","مثلاً آرڈر کا ریکارڈ رکھنا اور رسیدیں پرنٹ کرنا۔");
-    document.title = say("Valued Bytes Technologies · Websites & Apps in Chiniot","ویلیوڈ بائٹس ٹیکنالوجیز · چنیوٹ میں ویب سائٹس اور ایپس");
-    $('[data-wa="header"]').href = whatsApp(quoteMessage());
-    updateBrief();
-    toggleMenu(false);
-    renderScene();
-    renderIndustryDetail();
-    settleMotion();
-    if (modal && dialog.open) renderDialog();
-    if (persist) { try { localStorage.setItem("vbt-studio-language",lang); localStorage.setItem("vbt-site-language",lang); } catch {} }
-  }
-
   function linkButton(label,url,primary,icon) {
     const link = document.createElement("a");
     link.className = "btn " + (primary ? "btn-primary" : "btn-quiet");
@@ -342,7 +304,6 @@
   $("#scene-prev").addEventListener("click",() => changeScene(targetIndex - 1,true));
   $("#scene-next").addEventListener("click",() => changeScene(targetIndex + 1,true));
   $("#motion-toggle").addEventListener("click",() => {paused = !paused; settleMotion();});
-  languageButton.addEventListener("click",() => setLanguage(latin() ? "ur" : "en"));
   $("#menu-toggle").addEventListener("click",() => toggleMenu(!nav.classList.contains("is-open")));
   $$("a",nav).forEach(a => a.addEventListener("click",() => toggleMenu(false)));
   document.addEventListener("click",event => { if (nav.classList.contains("is-open") && !event.target.closest(".mast-inner")) toggleMenu(false); });
@@ -361,8 +322,10 @@
     observer.observe($(".hero"));
   }
   $("#year").textContent = new Date().getFullYear();
-  let preferred = "en";
-  try { preferred = localStorage.getItem("vbt-studio-language") || (localStorage.getItem("vbt-site-language") === "ur" ? "ur" : "en"); } catch {}
-  setLanguage(preferred,false);
+  $('[data-wa="header"]').href = whatsApp(quoteMessage());
+  updateBrief();
+  renderScene();
+  renderIndustryDetail();
+  settleMotion();
   preload(industries[0]); preload(industries[1]);
 })();

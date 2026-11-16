@@ -71,10 +71,6 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .main-nav a::after { content:""; position:absolute; inset-inline:0; inset-block-end:4px; height:2px; border-radius: 1px; background: var(--blue); transform: scaleX(0); transition: transform .2s; }
 .main-nav a:hover::after, .main-nav a:focus-visible::after { transform: scaleX(1); }
 .head-actions { display: flex; align-items: center; gap: 19px; justify-self: end; }
-.language { display: inline-flex; align-items: center; justify-content: center; gap: 7px; min-height: 39px; color: #203a60; }
-.language .icon { width: 16px; height: 16px; }
-.language [lang="ur"] { font: 400 15px/2 var(--urdu); }
-.language [lang="en"] { font: 550 13px/1.5 var(--sans); }
 .btn, .inline-link {
   display: inline-flex; align-items: center; justify-content: center; gap: 10px;
   font-size: 14px; font-weight: 600; line-height: 1.4; text-align: center;
@@ -370,7 +366,7 @@ html[lang="ur"] .card-link { font-size:13px; }
 @media(max-width:410px) {
   .wrap { width:calc(100% - 32px); }.mast-inner { min-height:59px; }
   .brand { gap:6px; }.brand-symbol { width:50px; }.brand-wordmark { width:80px; }
-  .head-actions { gap:8px; }.language { gap:4px; }.nav-cta { font-size:11px; padding:6px 9px; gap:4px; }
+  .head-actions { gap:8px; }.nav-cta { font-size:11px; padding:6px 9px; gap:4px; }
   .hero h1 { font-size:clamp(39px,11.35vw,47px); }
   .hero-lead { font-size:14px; }.hero-bilingual { font-size:14px; }.hero-actions .btn { font-size:12px; }
   .scene-caption { width:99%; }.caption-name h2 { font-size:14px; }.scene-group { font-size:9.5px; }
