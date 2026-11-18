@@ -81,21 +81,51 @@
     return say("Assalam-o-alaikum, I’d like to discuss " + subject + " with Valued Bytes Technologies.",
       "السلام علیکم، میں ویلیوڈ بائٹس ٹیکنالوجیز سے " + subject + " کے بارے میں بات کرنا چاہتا ہوں۔");
   }
-  function quoteMessage(service = "", sector = "", note = "") {
+  function quoteMessage(service = "", sector = "", note = "", extras = {}) {
     const lines = [say("Assalam-o-alaikum! I’d like a project quote from Valued Bytes Technologies in Chiniot.",
       "السلام علیکم! مجھے چنیوٹ میں ویلیوڈ بائٹس ٹیکنالوجیز سے اپنے پروجیکٹ کی قیمت معلوم کرنی ہے۔")];
+    if (extras.name) lines.push("Business / institution — " + extras.name);
     if (service) lines.push(say("Service requested — ","مطلوبہ سروس — ") + service);
     if (sector) lines.push(say("Industry — ","شعبہ — ") + sector);
-    if (note) lines.push(note);
+    if (extras.budget) lines.push("Estimated budget — " + extras.budget);
+    if (extras.timeline) lines.push("Preferred timeline — " + extras.timeline);
+    if (note) lines.push("Project details — " + note);
     return lines.join("\n");
   }
 
-  function updateBrief() {
+  function getBrief() {
     const service = services[$("#brief-service").value];
     const sector = industries.find(entry => entry.key === $("#brief-industry").value);
-    const note = $("#brief-note").value.trim();
-    const message = quoteMessage(service ? pick(service.name) : "", sector ? nameOf(sector) : "", note);
-    $('[data-wa="contact"]').href = whatsApp(message);
+    return quoteMessage(service ? pick(service.name) : "", sector ? nameOf(sector) : "", $("#brief-note").value.trim(), {
+      name: $("#brief-name").value.trim(),
+      budget: $("#brief-budget").value,
+      timeline: $("#brief-timeline").value
+    });
+  }
+  function updateBrief() {
+    $('[data-wa="contact"]').href = whatsApp(getBrief());
+    $("#brief-feedback").textContent = "";
+  }
+  async function copyBrief() {
+    const message = getBrief();
+    let copied = false;
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(message);
+        copied = true;
+      } else {
+        const fallback = document.createElement("textarea");
+        fallback.value = message;
+        fallback.style.cssText = "position:fixed;top:-9999px;opacity:0";
+        document.body.append(fallback);
+        fallback.select();
+        copied = document.execCommand("copy");
+        fallback.remove();
+      }
+    } catch { copied = false; }
+    $("#brief-feedback").textContent = copied ?
+      "Project brief copied. You can paste it into an email or message." :
+      "Copy is unavailable in this browser. You can use Open in WhatsApp instead.";
   }
 
   function setLabel(selector, label) {
@@ -266,7 +296,15 @@
     $("#dialog-description").textContent = pick(item.copy);
     const extra = $("#dialog-extra");
     const chips = document.createElement("ul");
-    chips.className = "tags"; tags(chips,pick(item.tags)); extra.replaceChildren(chips);
+    chips.className = "tags"; tags(chips,pick(item.tags));
+    extra.replaceChildren();
+    if (isProduct) {
+      const badge = document.createElement("span");
+      badge.className = "product-status dialog-status " + (modal.id === "smart-school" ? "is-ready" : "is-building");
+      badge.textContent = modal.id === "smart-school" ? "Ready for Windows" : "In development";
+      extra.append(badge);
+    }
+    extra.append(chips);
     const actions = $("#dialog-actions");
     actions.replaceChildren();
     if (modal.id === "smart-school") {
@@ -276,8 +314,20 @@
       actions.append(linkButton(say("Download for Windows","ونڈوز کے لیے ڈاؤن لوڈ"),releaseFiles+"VBT.SmartSchool.Setup.1.1.0.exe",true,"down"));
     }
     if (modal.id === "smart-campus") actions.append(linkButton(say("Visit product page","پروڈکٹ کا صفحہ دیکھیں"),"smartcampus/",true,"north"));
+    if (!isProduct) {
+      const briefLink = linkButton("Prepare a project brief","#contact",true,"right");
+      briefLink.addEventListener("click",() => {
+        $("#brief-service").value = modal.id;
+        updateBrief();
+        dialog.close();
+      });
+      actions.append(briefLink);
+    }
     const inquiry = isProduct ? waMessage(title) : quoteMessage(title);
-    actions.append(linkButton(isProduct ? say("Ask on WhatsApp","واٹس ایپ پر دریافت کریں") : say("Get a WhatsApp quote","واٹس ایپ پر قیمت معلوم کریں"),whatsApp(inquiry),!actions.children.length,"whatsapp"));
+    const inquiryText = isProduct && modal.id !== "smart-school" ?
+      "Ask about development & availability" :
+      (isProduct ? "Ask on WhatsApp" : "Get a WhatsApp quote");
+    actions.append(linkButton(inquiryText,whatsApp(inquiry),!actions.children.length,"whatsapp"));
   }
   function openDialog(type,id,trigger) {
     modal = {type,id}; returnFocus = trigger;
@@ -300,7 +350,11 @@
   }));
   $("#brief-service").addEventListener("change",updateBrief);
   $("#brief-industry").addEventListener("change",updateBrief);
+  $("#brief-name").addEventListener("input",updateBrief);
+  $("#brief-budget").addEventListener("change",updateBrief);
+  $("#brief-timeline").addEventListener("change",updateBrief);
   $("#brief-note").addEventListener("input",updateBrief);
+  $("#copy-brief").addEventListener("click",copyBrief);
   $("#scene-prev").addEventListener("click",() => changeScene(targetIndex - 1,true));
   $("#scene-next").addEventListener("click",() => changeScene(targetIndex + 1,true));
   $("#motion-toggle").addEventListener("click",() => {paused = !paused; settleMotion();});
