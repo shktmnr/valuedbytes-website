@@ -434,3 +434,17 @@ html[lang="ur"] .card-link { font-size:13px; }
 @media(prefers-reduced-motion:reduce) {
   .faq-item, .faq-item summary span { transition:none; }
 }
+
+/* Small-screen typography guard: prevent rotating industry headlines from clipping. */
+.p-category { font-size:10px; }
+.service-desc, .card-copy { font-size:13.5px; }
+@media(max-width:540px) {
+  .hero .type-line { font-size:.88em; }
+  .hero .type-line[data-long="true"] { font-size:.70em; }
+  .p-category { font-size:9.2px; }
+  .card-copy, .service-desc { font-size:12.8px; }
+}
+@media(max-width:350px) {
+  .hero .type-line { font-size:.83em; }
+  .hero .type-line[data-long="true"] { font-size:.65em; }
+}
